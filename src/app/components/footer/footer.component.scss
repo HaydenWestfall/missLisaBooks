@@ -1,0 +1,50 @@
+
+.footer-page {
+    width: 100%;
+    position: absolute;
+    padding: 3rem 5rem 1rem 5rem;
+    background-color: #EEE9E6;
+    overflow: hidden;
+    
+    .links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1vw;
+        height: 20rem;
+        color: #A5A09D;
+
+        .header {
+            font-size: 2.25vw;
+            margin-bottom: 2rem;
+            color: #767270;
+        }
+
+        a {
+            width: fit-content;
+            cursor: pointer;
+        }
+    }
+
+    .copyright {
+        position: absolute;
+        display: flex;
+        gap: 0.3rem;
+        font-size: 0.7rem;
+        align-items: center;
+        bottom: 2rem;
+        color: #B3B3B3;
+    }
+
+    .logo-watermark {
+        position: absolute;
+        right: -5vw;
+        bottom: -2rem;
+        height: 100%;
+        opacity: 0.2;
+
+        img {
+            height: 100%;
+        }
+    }
+}

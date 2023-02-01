@@ -1,0 +1,53 @@
+.shop-page {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+    padding: 0 5rem;
+
+    .locations-wrapper {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .locations {
+        width: 100%;
+        display: grid;
+        grid-auto-columns: calc(calc(100% / 3) - 20px);
+        grid-column-gap: 30px;
+        grid-auto-flow: column;
+        padding: 25px 0px;
+        list-style: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        height: 15rem;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+
+
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
+
+        .location {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            scroll-snap-align: start;
+            border: 1px solid rgb(229, 229, 229);
+        }
+    }
+
+    .container {
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    }
+}

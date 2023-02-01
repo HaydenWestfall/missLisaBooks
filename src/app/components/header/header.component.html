@@ -1,0 +1,13 @@
+
+<div class="header-wrapper">
+    <span [ngStyle]="{ color: subHeaderColor }" class="sub-header">{{subHeader}}</span>
+    <span [ngStyle]="{ color: headerColor }" *ngIf="header != ''" class="header">{{header}}</span>
+    <div class="book-title" *ngIf="header == ''" [ngStyle]="{ color: headerColor }">
+        <span>JOSIE</span>
+        <div class="little-word-wrapper">
+            <div>and</div>
+            <div>the</div>
+        </div>
+        <span>TOAD</span>
+    </div>
+</div>

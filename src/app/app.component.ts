@@ -1,4 +1,6 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
+import { SvgIcon } from './utility/svg-icons/svg-icons.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'missLisaBooks';
+  SvgIcon = SvgIcon;
+
+  constructor(public scrollToView: ViewportScroller) { }
+
+  public scrollToElement(element: string) {
+    console.log(element);
+    
+    this.scrollToView.scrollToAnchor(element);
+  }
 }

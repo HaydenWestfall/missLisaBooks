@@ -1,0 +1,78 @@
+
+$height: 150vh;
+
+.about-wrapper {
+    position: relative;
+    height: $height;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5rem;
+    background-color: #EAF3EE;
+
+    .wave {
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+
+    .top {
+        bottom: $height;
+    }
+
+    .bottom {
+        top: $height;
+    }
+
+    .about-person {
+        margin-top: 10rem;
+        position: relative;
+        display: flex;
+        max-width: 70rem;
+        justify-content: space-around;
+        align-items: center;
+        gap: 4rem;
+        font-family: 'helios-antique';
+        font-weight: 500;
+
+        .employee-photo {
+            position: relative;
+            height: 25rem;
+            width: 18rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            background-color: #AEB7B2;
+            border-radius: 12rem;
+            border: 1px solid #a2a2a2;
+            overflow: hidden;
+            box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.171);
+            flex-shrink: 0;
+
+
+            .employee-position {
+                position: absolute;
+                left: -10px;
+                display: none;
+            }
+        }
+
+
+
+        .employee-description {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            font-size: 1.2vw;
+            gap: 1rem;
+
+            span {
+                font-size: 4.5vw;
+                font-family: 'chelsea-market';
+            }
+        }
+    }
+}

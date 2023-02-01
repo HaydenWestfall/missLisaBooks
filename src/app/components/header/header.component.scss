@@ -1,0 +1,42 @@
+
+.header-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+
+    .sub-header {
+        font-size: clamp(1px, 2vw + 1rem, 0.9rem);
+        font-family: 'helios-antique';
+        font-weight: 500;
+        letter-spacing: 2.2px;
+    }
+
+    .header {
+        font-size: 6vw;
+        font-family: 'chelsea-market';
+    }
+
+    .book-title {
+        display: flex;
+        font-size: 6vw;
+        font-family: 'chelsea-market';
+        gap: 0.5rem;
+
+        .little-word-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 2.5vw;
+            max-font
+
+            div {
+                line-height: 2.7vw;
+            }
+        }
+    }
+
+    @media screen {
+        
+    }
+}
