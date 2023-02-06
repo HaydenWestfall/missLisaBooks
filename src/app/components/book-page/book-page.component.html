@@ -1,22 +1,20 @@
-<div class="latest-release-page" id="books">
+<div class="latest-release-page" id="Books">
     
-    <app-header header="" subHeader="LATEST RELEASE" headerColor="white" subHeaderColor="#82a994"></app-header>
-
-    <div class="latest-release-wrapper">
-      <img [src]="'../assets/img/3DCover.png'">
-      <div class="book-description">
-        <div class="book-title-wrapper">
-          <div class="book-title">Josie</div>
-          <div class="stacked-title">
-            <span>and</span><span>the</span>
-          </div>
-          <div class="book-title">Toad</div>
-        </div>
-        Dawson and his older sister, Maddie, live in the country, where they are surrounded by wildlige. Over the coufrse of a summer, thei rmom finds herself with a small myster on her hands. 
-        AN ENORMOUS TOAD is randomly seen throughout their home and always in the middle of the night. The toad is found on several occasions. No one is sure how the toad keeps getting in the house, until one night... the mystery is solved
-      </div>
+    <div class="header">
+        <app-header #header id="bookHeader" header="" subHeader="LATEST RELEASE" headerColor="white" subHeaderColor="#82a994"></app-header>
+        <img [src]="'../assets/img/Award.png'" alt="Amazon #1 new Release">
     </div>
 
+    <div class="latest-release-wrapper">
+        <div class="book-image-wrapper">
+            <img class="book" [src]="'../assets/img/Josie_and_toad.png'">
+        </div>
+      <div class="book-description">
+        <span>Dawson and his older sister, Maddie, live in the country, where they are surrounded by wildlige. Over the coufrse of a summer, thei rmom finds herself with a small myster on her hands. </span>
+        <br/><br/><span class="big-summ">AN ENORMOUS TOAD</span><br/><br/>
+        <span>is randomly seen throughout their home and always in the middle of the night. The toad is found on several occasions. No one is sure how the toad keeps getting in the house, until one night... the mystery is solved</span>
+      </div>
+    </div>
 
     <svg class="wave" viewBox="0 0 1920 178" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M792.188 91.2437C435.878 186.177 110.267 119.498 -8 74.2913V0H1920V178C1692.53 109.526 1148.5 -3.68969 792.188 91.2437Z" fill="#537864"/>

@@ -1,0 +1,10 @@
+
+<button (click)="buttonClicked.emit()"
+    [ngStyle]="{
+        '--button-bg': backgroundColor,
+        '--button-border': border,
+        '--button-text-color': color,
+        '--hover-bg': hoverBg,
+        '--hover-border': hoverBorder,
+        '--hover-color': hoverColor
+    }">{{text}}</button>

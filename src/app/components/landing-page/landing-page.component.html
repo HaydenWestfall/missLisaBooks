@@ -1,22 +1,27 @@
-<div class="landing-page">
+<div class="landing-page" #landing id="test">
       <div class="hero">
-        <h1>Lets Be Irrationally Crazy About As Many Kids As We Possibly Can</h1>
+        <h1>
+            <span *ngFor="let letter of heroTextChunks; let i = index" [ngClass]="{'fade': i < characterIndex}">{{letter}} </span>
+        </h1>
         <div class="button-wrapper">
-            <button (click)="scrollToElement('shop')">Shop Now</button>
+            <app-button (buttonClicked)="scrollToElement('Shop')" text="Shop Now"
+                btn-bg="var(--secondary-color)" btn-border="var(--secondary-color)"
+                btn-color="white" hoverBg="transparent" hoverBorder="var(--secondary-color)" hoverColor="white"
+                *ngIf="showAction" @fadeInOutQuick>Shop Now</app-button>
         </div>
       </div>
+      <div class="animated-background" [ngStyle]="{'width': scrollIncrement * scrollPosition + 'px'}"></div>
       <div class="graphic">
             <div class="graphic-wrapper">
-                <svg-icon [name]="SvgIcon.HERO_BG" [height]="'60vw'"></svg-icon>
-                <div class="kid kid_1">
-                  <img [src]="'../assets/img/boy.png'">
-                </div>
-                <div class="kid kid_2">
-                  <img [src]="'../assets/img/girl.png'">
-                </div>
-                <div class="kid kid_3">
-                  <img [src]="'../assets/img/girl2.png'">
+                <svg-icon [name]="SvgIcon.HERO_BG"></svg-icon>
+                <div *ngFor="let kid of kids; let i = index" class="person" [ngClass]="kid.id" (click)="kidSelected = kid">
+                    <div class="person-container">
+                        <img [src]="kid.image" class="person-fg" [ngClass]="'position' + i">
+                        <div class="circle-bg" [ngStyle]="{'background': kid.bg}"></div>
+                    </div>
                 </div>
             </div>
       </div>
+
+      <app-kid-info [selectedKid]="kidSelected" (closeKid)="kidSelected =null"></app-kid-info>
 </div>

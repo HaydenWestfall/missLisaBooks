@@ -1,16 +1,12 @@
 
-$height: 150vh;
-
 .about-wrapper {
     position: relative;
-    height: $height;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 0 5rem;
     background-color: #EAF3EE;
+    padding-top: 5rem;
 
     .wave {
         position: absolute;
@@ -19,60 +15,94 @@ $height: 150vh;
     }
 
     .top {
-        bottom: $height;
+        bottom: 99.95%;
     }
 
     .bottom {
-        top: $height;
+        top: 99.95%;
     }
 
-    .about-person {
-        margin-top: 10rem;
-        position: relative;
+    .about-person-wrapper {
         display: flex;
-        max-width: 70rem;
-        justify-content: space-around;
-        align-items: center;
-        gap: 4rem;
-        font-family: 'helios-antique';
-        font-weight: 500;
+        flex-direction: column;
+        gap: 5rem;
+        padding: 5rem 5rem;
 
-        .employee-photo {
+        .about-person {
             position: relative;
-            height: 25rem;
-            width: 18rem;
             display: flex;
-            flex-direction: column;
+            max-width: 65rem;
+            justify-content: space-around;
             align-items: center;
-            justify-content: flex-end;
-            background-color: #AEB7B2;
-            border-radius: 12rem;
-            border: 1px solid #a2a2a2;
-            overflow: hidden;
-            box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.171);
-            flex-shrink: 0;
+            gap: 4rem;
+            font-family: 'helios-antique';
+            font-weight: 500;
+
+            .employee-photo {
+                position: relative;
+                height: 25rem;
+                width: 18rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-end;
+                background-color: #AEB7B2;
+                border-radius: 12rem;
+                border: 1px solid #a2a2a2;
+                overflow: hidden;
+                box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.171);
+                flex-shrink: 0;
 
 
-            .employee-position {
-                position: absolute;
-                left: -10px;
-                display: none;
+                .employee-position {
+                    position: absolute;
+                    left: -10px;
+                    display: none;
+                }
             }
-        }
 
 
 
-        .employee-description {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            font-size: 1.2vw;
-            gap: 1rem;
+            .employee-description {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                font-size: 0.9rem;
+                gap: 2rem;
 
-            span {
-                font-size: 4.5vw;
-                font-family: 'chelsea-market';
+                span {
+                    font-size: 3.5rem;
+                    line-height: 3.2rem;
+                    font-family: 'chelsea-market';
+                }
             }
         }
     }
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    .about-wrapper {
+        .about-person {
+            flex-direction: column;
+            gap: 3rem;
+
+            .employee-photo {
+
+            }
+
+
+            .employee-description {
+                text-align: center;
+                align-items: center;
+                font-size: 0.6rem;
+
+                span {
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+
 }

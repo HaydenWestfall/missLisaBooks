@@ -8,32 +8,9 @@
             <span>Miss Lisa Books</span>
         </div>
 
-        <div class="links">
-            <div class="link" (click)="scrollToElement('platform')">
-                <span>Platform</span>
-                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
-            </div>
-            <div class="link" (click)="scrollToElement('books')">
-                <span>Books</span>
-                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
-            </div>
-            <div class="link" (click)="scrollToElement('about')">
-                <span>About</span>
-                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
-            </div>
-            <div class="link" (click)="scrollToElement('shop')">
-                <span>Shop</span>
-                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
-            </div>
-            <div class="link" (click)="scrollToElement('contact')">
-                <span>Contact</span>
-                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
-            </div>
-        </div>
-
         <button #btn class="more-btn" aria-controls="primary-navigation"
             [attr.aria-expanded]="showNav" (click)="showNav = !showNav">
-            <svg fill="var(--button-color)" class="hamburger" viewBox="0 0 100 100" width="1rem">
+            <svg fill="currentColor" class="hamburger" viewBox="0 0 100 100" width="1.5rem">
               <rect class="line top" width="80" height="10" x="10" y="25" rx="5">
               </rect>
               <rect class="line middle" width="80" height="10" x="10" y="45" rx="5">
@@ -41,6 +18,13 @@
               <rect class="line bottom" width="80" height="10" x="10" y="65" rx="5">
               </rect>
             </svg>
-          </button>
+        </button>
+
+        <div class="links" *ngIf="(showNav && mediaQuery.matches) || !mediaQuery.matches" @panelSlideIn>
+            <div *ngFor="let navbarLink of navbarLinks" class="link" (click)="scrollToElement(navbarLink);">
+                <span>{{navbarLink}}</span>
+                <svg-icon [name]="SvgIcon.ANGLE" width="1.25rem" height="1.25rem"></svg-icon>
+            </div>
+        </div>
     </div>
 </div>

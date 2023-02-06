@@ -1,9 +1,8 @@
 
-$height: 90vh;
+$height: 120vh;
 
 .latest-release-page {
     position: relative;
-    height: $height;
     width: 100%;
     background-color: var(--primary-color);
     display: flex;
@@ -11,49 +10,91 @@ $height: 90vh;
     justify-content: center;
     flex-direction: column;
     gap: 3rem;
-    padding: 0 5rem;
+    padding: 8rem 5rem;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            margin-top: 1rem;
+            height: 1.5rem;
+        }
+    }
 
     .latest-release-wrapper {
         display: flex;
         justify-content: center;
+        align-items: center;
         width: inherit;
+        max-width: 65rem;
         gap: 8rem;
 
-        img {
-            width: 20vw;
+        .book-image-wrapper {
+            position: relative;
+            width: fit-content;
+
+            img {
+                width: 22vw;
+            }
         }
 
         .book-description {
-            .book-title-wrapper {
-                display: flex;
-                align-items: center;
-                gap: 0.4rem;
-    
-                .book-title {
-                    font-family: 'chelsea-market';
-                    font-size: 4vw;
-                }
-                .stacked-title {
-                    font-family: 'chelsea-market';
-                    font-size: 1.3vw;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                }
-            }
-
-            font-size: 1.5vw;
+            font-family: 'helios-antique';
+            font-weight: 500;
+            font-size: 1.3rem;
             max-width: 35vw;
+            color: white;
+            height: fit-content;
+            text-align: center;
+
+            .big-summ {
+                font-size: 2rem;
+            }
         }
     }
-
 
     .wave {
         position: absolute;
         width: 100%;
-        top: $height;
+        top: 99.5%;
         color: var(--primary-color);
         left: 0;
         z-index: 5000;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .latest-release-page {
+        gap: 0;
+
+        .header {
+            img {
+                height: 1rem;
+            }
+        }
+        
+        .latest-release-wrapper {
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+    
+            .book-image-wrapper {
+                img {
+                    width: 75vw;
+                }
+            }
+
+            .book-description {
+                max-width: unset;
+                text-align: center;
+                font-size: 1rem;
+
+                .big-summ {
+                    font-size: 1.5rem;
+                }
+            }
+        }
     }
 }

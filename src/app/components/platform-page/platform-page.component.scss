@@ -1,40 +1,77 @@
 
 .platform-page {
-    height: 100vh;
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 5rem 0 5rem;
     text-align: center;
     gap: 5rem;
+    padding: 18vw 0;
 
     .platform-cards {
-        display: flex;
-        justify-content: space-between;
-        width: inherit;
+        width: 100%;
+        max-width: 65rem;
+        display: grid;
+        grid-auto-columns: calc(calc(100% / 3) - 20px);
+        grid-column-gap: 30px;
+        grid-auto-flow: column;
+        list-style: none;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+        padding: 2rem;
+
+
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
 
         .platform-card {
             height: 50vh;
-            width: 31%;
+            width: 100%;
             border-radius: 10px;
             background-color: white;
-            box-shadow: 0 4px 80px 0 rgba(0, 0, 0, 0.173);
             font-size: 1.2rem;
             font-family: 'helios-antique';
             font-weight: 600;
-            overflow: hidden;
             text-align: left;
+            overflow: hidden;
+            border: 1px solid #e2e2e2;
+            box-shadow: 0 4px 8px 0 rgb(0 0 0 / 17%);
 
             img {
                 height: 40%;
                 width: 100%;
+                object-fit: cover;
                 border-bottom: 1px solid rgb(208, 208, 208);
             }
             
             div {
                 padding: 1.5rem;
+            }
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .platform-page {
+        .platform-cards {
+            grid-auto-columns: 70vw;
+            grid-column-gap: 5vw;
+            padding: 5vh 15vw;
+
+            .platform-card {
+                width: 70vw;
+                scroll-snap-align: center;
+
+                div {
+                    text-align: center;
+                    font-size: 1rem;
+                }
             }
         }
     }

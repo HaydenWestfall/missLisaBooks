@@ -1,5 +1,5 @@
-<div class="platform-page" id="platform">
-    <app-header header="Believe In Children" subHeader="OUR PLATFORM" headerColor="var(--primary-color)" subHeaderColor="#A6B2AC"></app-header>
+<div class="platform-page" id="Platform">
+    <app-header #headerPlat header="Believe In Children" subHeader="OUR PLATFORM" headerColor="var(--primary-color)" subHeaderColor="#A6B2AC" [id]="'platHeader'"></app-header>
     <div class="platform-cards">
         <div *ngFor="let card of cards" class="platform-card">
             <img [src]="card.image" alt="child-learning">

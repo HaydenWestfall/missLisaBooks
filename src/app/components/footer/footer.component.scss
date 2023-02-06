@@ -3,7 +3,7 @@
     width: 100%;
     position: absolute;
     padding: 3rem 5rem 1rem 5rem;
-    background-color: #EEE9E6;
+    background-color: white;
     overflow: hidden;
     
     .links {
@@ -11,40 +11,95 @@
         flex-direction: column;
         gap: 0.5rem;
         font-size: 1vw;
-        height: 20rem;
         color: #A5A09D;
 
         .header {
+            font-family: 'courgette';
             font-size: 2.25vw;
             margin-bottom: 2rem;
             color: #767270;
         }
 
         a {
+            font-family: 'helios-antique';
             width: fit-content;
             cursor: pointer;
         }
     }
 
+    .social-links {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 3rem 0;
+
+        svg {
+            color: #0f1117d5
+        }
+
+    }
+
     .copyright {
-        position: absolute;
+        position: relative;
         display: flex;
         gap: 0.3rem;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
         align-items: center;
-        bottom: 2rem;
-        color: #B3B3B3;
+        color: #0f111759;
     }
 
     .logo-watermark {
         position: absolute;
         right: -5vw;
-        bottom: -2rem;
+        bottom: -8rem;
         height: 100%;
         opacity: 0.2;
 
         img {
-            height: 100%;
+            height: 80%;
+        }
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .footer-page {
+        padding: 3rem 2rem 2rem 2rem;
+
+        .links {
+            font-size: 1rem;
+            gap: 1rem;
+
+            .header {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+                color: #000000;
+            }
+    
+            a {
+                color: black;
+                font-weight: 500;
+                width: fit-content;
+                cursor: pointer;
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .logo-watermark {
+            position: absolute;
+            right: -30vw;
+            bottom: -2rem;
+            height: 70%;
+            opacity: 0.2;
+    
+            img {
+                height: 100%;
+            }
         }
     }
 }

@@ -5,4 +5,37 @@
 <app-platform-page></app-platform-page>
 <app-about-page></app-about-page>
 <app-shop-page></app-shop-page>
+<app-contact-page (showContactForm)="showContactForm = true"></app-contact-page>
 <app-footer></app-footer>
+
+
+<div class="contact-form" @showForm *ngIf="showContactForm">
+  <header>Contact Miss Lisa</header>
+  <form onsubmit="sendEmail()">
+    <div class="input-group">
+      <span>Your Email</span>
+      <input />
+    </div>
+    <div class="input-group">
+      <span>Subject</span>
+      <input />
+    </div>
+    <div class="input-group">
+      <span>Message</span>
+      <textarea rows="10"></textarea>
+    </div>
+    <button type="submit" (click)="showContactForm = false">Send</button>
+  </form>
+
+  <!-- <form [formGroup]="formData" (ngSubmit)="test(formData.value)"><div>
+    <label for="EmailAddress">Email</label>
+    <input type="email" name="emailAddress" placeholder="Enter email" formControlName="emailAddress">
+    </div>
+    <div>
+    <label for="body">Body</label>
+    <textarea formControlName="body" name="body">
+    </textarea>
+    </div>
+    <button type="submit" [disabled]="!formData.valid">Submit</button>
+    </form> -->
+</div>

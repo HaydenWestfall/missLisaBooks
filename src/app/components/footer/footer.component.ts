@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component } from '@angular/core';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 
@@ -9,4 +10,9 @@ import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
 export class FooterComponent {
   SvgIcon = SvgIcon;
 
+  constructor(public scrollToView: ViewportScroller) { }
+
+  public scrollToElement(element: string) {
+    this.scrollToView.scrollToAnchor(element);
+  }
 }
