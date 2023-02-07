@@ -67,6 +67,10 @@
                 .location {
                     width: 70vw;
                     scroll-snap-align: center;
+
+                    img {
+                        max-width: 55vw;
+                    }
                 }
             }
         }

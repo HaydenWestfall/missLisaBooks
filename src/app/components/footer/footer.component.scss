@@ -46,6 +46,11 @@
         font-size: 0.8rem;
         align-items: center;
         color: #0f111759;
+
+        svg-icon {
+            flex: 0 0 auto;
+            max-width: 0.8rem;
+        }
     }
 
     .logo-watermark {

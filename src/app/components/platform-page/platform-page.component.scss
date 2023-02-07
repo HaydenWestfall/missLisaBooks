@@ -56,7 +56,6 @@
     }
 }
 
-
 @media only screen and (max-width: 768px) {
     .platform-page {
         .platform-cards {
@@ -71,6 +70,26 @@
                 div {
                     text-align: center;
                     font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 335px) {
+    .platform-page {
+        .platform-cards {
+            grid-auto-columns: 70vw;
+            grid-column-gap: 5vw;
+            padding: 5vh 15vw;
+
+            .platform-card {
+                width: 70vw;
+                scroll-snap-align: center;
+
+                div {
+                    text-align: center;
+                    font-size: 0.8rem;
                 }
             }
         }
