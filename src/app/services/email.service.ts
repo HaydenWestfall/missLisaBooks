@@ -13,7 +13,7 @@ export class EmailService {
   sendEmail(input: any) {
     console.log('running');
     
-    return this.http.post(this.url, { email: 'westfallhayden@gmail.com', _subject: 'Test', message: 'message'}).subscribe(
+    return this.http.post(this.url, { email: 'misslisabooks@gmail.com', _subject: 'Test', message: 'message'}).subscribe(
         (response) => {
             if (response) {
               console.log('success');
