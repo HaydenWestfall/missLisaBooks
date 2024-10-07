@@ -1,33 +1,38 @@
-import { AfterViewChecked, AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
-import { HeaderComponent } from '../header/header.component';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-about-page',
   templateUrl: './about-page.component.html',
-  styleUrls: ['./about-page.component.scss']
+  styleUrls: ['./about-page.component.scss'],
 })
-export class AboutPageComponent implements AfterViewInit {
-
+export class AboutPageComponent implements OnInit {
   mediaQuery: any = window.matchMedia('(max-width: 768px)');
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        this.header.show();
-      }
-    });
-  });
-
-  @ViewChild('header') header: HeaderComponent;
 
   constructor(public scrollToView: ViewportScroller) {
     window.onresize = () => {
       this.mediaQuery = window.matchMedia('(max-width: 768px)');
-    }
+    };
   }
 
-  ngAfterViewInit() {
-    this.observer.observe(document.getElementById('aboutHeader'));
+  ngOnInit() {
+    gsap.fromTo(
+      '#about-title',
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '#about-title',
+          start: 'top bottom',
+          end: 'top 75%',
+          scrub: true,
+        },
+      }
+    );
   }
 }

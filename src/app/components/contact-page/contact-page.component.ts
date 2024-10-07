@@ -1,29 +1,31 @@
-import { ViewportScroller } from '@angular/common';
-import { AfterViewChecked, AfterViewInit, Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-contact-page',
   templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss']
+  styleUrls: ['./contact-page.component.scss'],
 })
-export class ContactPageComponent implements AfterViewInit {
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        this.header.show();
-      }
-    });
-  });
-
+export class ContactPageComponent implements OnInit {
   @Output('showContactForm') showContactForm = new EventEmitter<any>();
-  @ViewChild('header') header: HeaderComponent;
 
-  constructor(public scrollToView: ViewportScroller) {}
-
-  ngAfterViewInit() {
-    this.observer.observe(document.getElementById('contactHeader'));
+  ngOnInit() {
+    gsap.fromTo(
+      '#contact-title',
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '#contact-title',
+          start: 'top bottom',
+          end: 'top 75%',
+          scrub: true,
+        },
+      }
+    );
   }
-
 }

@@ -2,89 +2,121 @@
 
 /* Color Cheme */
 html body {
-    --primary-color: #537864;
-    --primary-color-accent: #EAF3EE;
-    --secondary-color: #D88E60;
-    --tertiary-color: #BECBDF;
-    --accent-color: #EAF3EE;
-    --border-color: #D7D1CE;
+  --primary-color: #537864;
+  --primary-color-accent: #eaf3ee;
+  --secondary-color: #d88e60;
+  --tertiary-color: #becbdf;
+  --accent-color: #eaf3ee;
+  --border-color: #d7d1ce;
+
+  font-size: clamp(16px, 1.25vw, 19px);
+  background-color: var(--primary-color-accent);
 }
 
 /* Type Faces */
 @font-face {
-    font-family: 'chelsea-market';
-    src: url(./assets/fonts/chelseaMarket/ChelseaMarket-Regular.ttf) format('truetype');
-    font-weight: 500;
+  font-family: "chelsea-market";
+  src: url(./assets/fonts/chelseaMarket/ChelseaMarket-Regular.ttf)
+    format("truetype");
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: 'preahivhear';
-    src: url(./assets/fonts/preahvihear/Preahvihear-Regular.ttf) format('truetype');
+  font-family: "preahivhear";
+  src: url(./assets/fonts/preahvihear/Preahvihear-Regular.ttf)
+    format("truetype");
 }
 
 @font-face {
-    font-family: 'courgette';
-    src: url(./assets/fonts/courgette/Courgette-Regular.ttf) format('truetype');
+  font-family: "courgette";
+  src: url(./assets/fonts/courgette/Courgette-Regular.ttf) format("truetype");
 }
 
 /* Type Faces */
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Heavy.otf) format('opentype');
-    font-weight: 900;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Heavy.otf) format("opentype");
+  font-weight: 900;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Black.otf) format('opentype');
-    font-weight: 800;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Black.otf) format("opentype");
+  font-weight: 800;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Bold.otf) format('opentype');
-    font-weight: 700;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Bold.otf) format("opentype");
+  font-weight: 700;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Semi-Bold.otf) format('opentype');
-    font-weight: 600;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Semi-Bold.otf)
+    format("opentype");
+  font-weight: 600;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Medium.otf) format('opentype');
-    font-weight: 500;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Medium.otf) format("opentype");
+  font-weight: 500;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Regular.otf) format('opentype');
-    font-weight: 400;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Regular.otf) format("opentype");
+  font-weight: 400;
 }
 
 @font-face {
-    font-family: 'helios-antique';
-    src: url(./assets/fonts/helios/Helios-Antique-Light.otf) format('opentype');
-    font-weight: 300;
+  font-family: "helios-antique";
+  src: url(./assets/fonts/helios/Helios-Antique-Light.otf) format("opentype");
+  font-weight: 300;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 .header {
-    font-size: 6vw;
+  font-size: 6vw;
 }
 
 .paragraph {
-    font-size: 1.4vw;
+  font-size: 1.4vw;
+  font-weight: 500;
+}
+
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+
+  .sub-header {
+    font-size: 0.75rem;
+    font-family: "helios-antique";
     font-weight: 500;
+    letter-spacing: 2.2px;
+    color: #c0d0c7;
+  }
+
+  .section-header {
+    font-size: 4.25rem;
+    font-family: "chelsea-market";
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    white-space: pre;
+    color: var(--primary-color);
+  }
 }

@@ -1,97 +1,96 @@
-
 .platform-page {
-    position: relative;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  gap: 5rem;
+  padding: 18vw 0;
+  background-color: white;
+
+  .platform-cards {
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    gap: 5rem;
-    padding: 18vw 0;
+    max-width: 65rem;
+    display: grid;
+    grid-auto-columns: calc(calc(100% / 3) - 20px);
+    grid-column-gap: 30px;
+    grid-auto-flow: column;
+    list-style: none;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+    padding: 2rem;
 
-    .platform-cards {
-        width: 100%;
-        max-width: 65rem;
-        display: grid;
-        grid-auto-columns: calc(calc(100% / 3) - 20px);
-        grid-column-gap: 30px;
-        grid-auto-flow: column;
-        list-style: none;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-        padding: 2rem;
-
-
-        &::-webkit-scrollbar { 
-            display: none;  /* Safari and Chrome */
-        }
-
-        .platform-card {
-            height: 50vh;
-            width: 100%;
-            border-radius: 10px;
-            background-color: white;
-            font-size: 1.1rem;
-            font-family: 'helios-antique';
-            font-weight: 600;
-            text-align: left;
-            overflow: hidden;
-            border: 1px solid #e2e2e2;
-            box-shadow: 0 4px 8px 0 rgb(0 0 0 / 17%);
-
-            img {
-                height: 40%;
-                width: 100%;
-                object-fit: cover;
-                border-bottom: 1px solid rgb(208, 208, 208);
-            }
-            
-            div {
-                padding: 1.5rem;
-            }
-        }
+    &::-webkit-scrollbar {
+      display: none; /* Safari and Chrome */
     }
+
+    .platform-card {
+      height: 50vh;
+      width: 100%;
+      border-radius: 10px;
+      background-color: white;
+      font-size: 1.1rem;
+      font-family: "helios-antique";
+      font-weight: 600;
+      text-align: left;
+      overflow: hidden;
+      border: 1px solid #e2e2e2;
+      box-shadow: 0 4px 8px 0 rgb(0 0 0 / 17%);
+
+      img {
+        height: 40%;
+        width: 100%;
+        object-fit: cover;
+        border-bottom: 1px solid rgb(208, 208, 208);
+      }
+
+      div {
+        padding: 1.5rem;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 768px) {
-    .platform-page {
-        .platform-cards {
-            grid-auto-columns: 70vw;
-            grid-column-gap: 5vw;
-            padding: 5vh 15vw;
+  .platform-page {
+    .platform-cards {
+      grid-auto-columns: 70vw;
+      grid-column-gap: 5vw;
+      padding: 5vh 15vw;
 
-            .platform-card {
-                width: 70vw;
-                scroll-snap-align: center;
+      .platform-card {
+        width: 70vw;
+        scroll-snap-align: center;
 
-                div {
-                    text-align: center;
-                    font-size: 1rem;
-                }
-            }
+        div {
+          text-align: center;
+          font-size: 1rem;
         }
+      }
     }
+  }
 }
 
 @media only screen and (max-width: 335px) {
-    .platform-page {
-        .platform-cards {
-            grid-auto-columns: 70vw;
-            grid-column-gap: 5vw;
-            padding: 5vh 15vw;
+  .platform-page {
+    .platform-cards {
+      grid-auto-columns: 70vw;
+      grid-column-gap: 5vw;
+      padding: 5vh 15vw;
 
-            .platform-card {
-                width: 70vw;
-                scroll-snap-align: center;
+      .platform-card {
+        width: 70vw;
+        scroll-snap-align: center;
 
-                div {
-                    text-align: center;
-                    font-size: 0.8rem;
-                }
-            }
+        div {
+          text-align: center;
+          font-size: 0.8rem;
         }
+      }
     }
+  }
 }

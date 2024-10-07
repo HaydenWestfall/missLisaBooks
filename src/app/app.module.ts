@@ -13,7 +13,6 @@ import { PlatformPageComponent } from './components/platform-page/platform-page.
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { BookPageComponent } from './components/book-page/book-page.component';
 import { ShopPageComponent } from './components/shop-page/shop-page.component';
-import { HeaderComponent } from './components/header/header.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { KidInfoComponent } from './components/kid-info/kid-info.component';
@@ -31,20 +30,19 @@ import { SplitPipe } from './pipes/split.pipe';
     AboutPageComponent,
     BookPageComponent,
     ShopPageComponent,
-    HeaderComponent,
     ContactPageComponent,
     KidInfoComponent,
     ButtonComponent,
-    SplitPipe
+    SplitPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

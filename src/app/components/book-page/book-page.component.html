@@ -1,23 +1,47 @@
 <div class="latest-release-page" id="Books">
-    
-    <div class="header">
-        <app-header #header id="bookHeader" header="" subHeader="LATEST RELEASE" headerColor="white" subHeaderColor="#82a994"></app-header>
-        <img [src]="'../assets/img/Award.png'" alt="Amazon #1 new Release">
-    </div>
+  <div class="header-wrapper">
+    <h3 [ngStyle]="{ color: '#82a994' }" class="sub-header">LATEST RELEASE</h3>
+    <div id="book-title" class="section-header">Fenner Road Series</div>
+    <img
+      id="award-image"
+      [src]="'../assets/img/Award.png'"
+      alt="Amazon #1 new Release"
+    />
+  </div>
 
-    <div class="latest-release-wrapper">
-        <div class="book-image-wrapper">
-            <img class="book" [src]="'../assets/img/Josie_and_toad.png'">
-        </div>
-      <div class="book-description">
-        <span>Dawson and his older sister, Maddie, live in the country, where they are surrounded by wildlife. Over the course of a summer, their mom finds herself with a small mystery on her hands.</span>
-        <br/><br/><span class="big-summ">AN ENORMOUS TOAD</span><br/><br/>
-        <span>is randomly seen throughout their home and always in the middle of the night. The toad is found on several occasions. No one is sure how the toad keeps getting in the house, until one night... the mystery is solved.</span>
-      </div>
+  <div class="latest-release-wrapper">
+    <div class="book-image-wrapper">
+      <img class="book" [src]="'../assets/img/josie_toad.png'" />
+      <img class="book" [src]="'../assets/img/hatching_snappers.png'" />
     </div>
+    <div class="book-description">
+      <span
+        >Madison and her little brother live in the country they are surrounded
+        by wildlife. Early one summer day, Madison and her mom discover a
+        snapping turtle laying eggs.</span
+      >
+      <span
+        >Madison is determined to save the turtle eggs from being eaten by local
+        wildlife, but its not an easy job.</span
+      >
+      <br /><br /><span class="big-summ">Is she up to the task?</span
+      ><br /><br />
+      <span
+        >Based on a true story, follow Madison's adventure in Hatching Snappers,
+        a heartwarming tale of determination and nature.</span
+      >
+    </div>
+  </div>
 
-    <svg class="wave" viewBox="0 0 1920 178" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M792.188 91.2437C435.878 186.177 110.267 119.498 -8 74.2913V0H1920V178C1692.53 109.526 1148.5 -3.68969 792.188 91.2437Z" fill="#537864"/>
-    </svg>
+  <svg
+    class="wave"
+    viewBox="0 0 1920 178"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M792.188 91.2437C435.878 186.177 110.267 119.498 -8 74.2913V0H1920V178C1692.53 109.526 1148.5 -3.68969 792.188 91.2437Z"
+      fill="#537864"
+    />
+  </svg>
 </div>
-    

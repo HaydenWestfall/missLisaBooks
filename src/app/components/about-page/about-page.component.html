@@ -1,44 +1,82 @@
+<div class="about-wrapper" id="About">
+  <svg class="wave top" viewBox="0 0 1920 178" fill="none">
+    <path
+      d="M1123.13 86.7563C1477.96 -8.17703 1802.22 58.5023 1920 103.709V178L0 178L0 0C226.531 68.4743 768.301 181.69 1123.13 86.7563Z"
+      fill="#EAF3EE"
+    />
+  </svg>
 
-<div class="about-wrapper"id="About">
-    <svg class="wave top" viewBox="0 0 1920 178" fill="none" >
-        <path d="M1123.13 86.7563C1477.96 -8.17703 1802.22 58.5023 1920 103.709V178L0 178L0 0C226.531 68.4743 768.301 181.69 1123.13 86.7563Z" fill="#EAF3EE"/>
-    </svg>
+  <div class="header-wrapper">
+    <h3 class="sub-header">ABOUT</h3>
+    <div id="about-title" class="section-header">Meet the Team</div>
+  </div>
 
-    <app-header #header header="Meet The Team" subHeader="ABOUT" headerColor="var(--primary-color)" subHeaderColor="#A6B2AC" id="aboutHeader"></app-header>
-
-    <div class="about-person-wrapper">
-        <div class="about-person">
-            <div class="employee-photo">
-                <img [src]="'../assets/img/lisa.png'" alt="Lisa Hildebrand Headshot" style="height: 21rem">
-                <div class="employee-position">Author and Creator</div>
-            </div>
-            <div class="employee-description">
-                <span>Lisa Hildebrand</span>
-                <div class="employee-description">
-                    Lisa is a wife and mother of two who lives in Ludlow Falls, Ohio. She graduated from Slippery Rock University with a BA in both Special Education and Elementary Education and has spent the last 26 years working in the area of special education. Lisa is a lover of all things for children. When she’s not at work, she can be found kayaking, reading a book, or riding her bike. She also spends countless hours trying to convince friends and family to try something new with her, such as learning to play the ukulele, sleeping in a floating tent, eating at a new restaurant, or cardio drumming! Lisa enjoys organizing events and volunteering whenever possible at church and community events.
-                </div>
-            </div>
+  <div class="about-person-wrapper">
+    <div class="about-person">
+      <div class="employee-photo">
+        <img
+          [src]="'../assets/img/lisa.png'"
+          alt="Lisa Hildebrand Headshot"
+          style="height: 21rem"
+        />
+        <div class="employee-position">Author and Creator</div>
+      </div>
+      <div class="employee-description">
+        <span>Lisa Hildebrand</span>
+        <div class="employee-description">
+          Lisa is a wife and mother of two who lives in Ludlow Falls, Ohio. She
+          graduated from Slippery Rock University with a BA in both Special
+          Education and Elementary Education and has spent the last 26 years
+          working in the area of special education. Lisa is a lover of all
+          things for children. When she’s not at work, she can be found
+          kayaking, reading a book, or riding her bike. She also spends
+          countless hours trying to convince friends and family to try something
+          new with her, such as learning to play the ukulele, sleeping in a
+          floating tent, eating at a new restaurant, or cardio drumming! Lisa
+          enjoys organizing events and volunteering whenever possible at church
+          and community events.
         </div>
-        <div class="about-person">
-            <div class="employee-photo" *ngIf="mediaQuery.matches">
-                <img [src]="'../assets/img/parker.png'" alt="Parker Buhrman Headshot" style="height: 24rem">
-                <div class="employee-position">Illustrator</div>
-            </div>
-            <div class="employee-description">
-                <span>Parker Buhrman</span>
-                <div class="employee-description">
-                    Parker and his high school sweetheart, Olivia, were born, raised, and continue to reside in Arcanum, Ohio. He has always had a love for the arts and a creative mind that never seems to shut off “new ideas.” Parker loves to draw and sketch the images that pop into his brain. Parker was born with colorblindness and has found that he enjoys the challenges that come along with bringing these images to full color. When he’s not illustrating or working his day job in the business world, he can likely be found renovating their 1800’s home, working on projects in his barn, making music with his friends, or planning his next big road trip across the country.
-                </div>
-            </div>
-            <div class="employee-photo" *ngIf="!mediaQuery.matches">
-                <img [src]="'../assets/img/parker.png'" alt="Parker Buhrman Headshot" style="height: 24rem">
-                <div class="employee-position">Illustrator</div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="about-person">
+      <div class="employee-photo" *ngIf="mediaQuery.matches">
+        <img
+          [src]="'../assets/img/parker.png'"
+          alt="Parker Buhrman Headshot"
+          style="height: 24rem"
+        />
+        <div class="employee-position">Illustrator</div>
+      </div>
+      <div class="employee-description">
+        <span>Parker Buhrman</span>
+        <div class="employee-description">
+          Parker and his high school sweetheart, Olivia, were born, raised, and
+          continue to reside in Arcanum, Ohio. He has always had a love for the
+          arts and a creative mind that never seems to shut off “new ideas.”
+          Parker loves to draw and sketch the images that pop into his brain.
+          Parker was born with colorblindness and has found that he enjoys the
+          challenges that come along with bringing these images to full color.
+          When he’s not illustrating or working his day job in the business
+          world, he can likely be found renovating their 1800’s home, working on
+          projects in his barn, making music with his friends, or planning his
+          next big road trip across the country.
+        </div>
+      </div>
+      <div class="employee-photo" *ngIf="!mediaQuery.matches">
+        <img
+          [src]="'../assets/img/parker.png'"
+          alt="Parker Buhrman Headshot"
+          style="height: 24rem"
+        />
+        <div class="employee-position">Illustrator</div>
+      </div>
+    </div>
+  </div>
 
-
-    <svg class="wave bottom" viewBox="0 0 1920 246" fill="none">
-        <path d="M684.322 45.4992C354.408 174.699 90.6431 99.3325 0 45.4992V0H1920V246C1725.38 134.333 1014.24 -83.7008 684.322 45.4992Z" fill="#EAF3EE"/>
-    </svg>
+  <svg class="wave bottom" viewBox="0 0 1920 246" fill="none">
+    <path
+      d="M684.322 45.4992C354.408 174.699 90.6431 99.3325 0 45.4992V0H1920V246C1725.38 134.333 1014.24 -83.7008 684.322 45.4992Z"
+      fill="#EAF3EE"
+    />
+  </svg>
 </div>

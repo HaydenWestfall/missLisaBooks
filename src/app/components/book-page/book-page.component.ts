@@ -1,29 +1,46 @@
-import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
+import { Component, OnInit } from '@angular/core';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-book-page',
   templateUrl: './book-page.component.html',
-  styleUrls: ['./book-page.component.scss']
+  styleUrls: ['./book-page.component.scss'],
 })
-export class BookPageComponent implements AfterViewInit {
-
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => {
-          this.header.show();
-        }, 300);
+export class BookPageComponent implements OnInit {
+  ngOnInit() {
+    gsap.fromTo(
+      '#book-title',
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '#book-title',
+          start: 'top bottom',
+          end: 'top 75%',
+          scrub: true,
+        },
       }
-    });
-  });
-
-  @ViewChild('header') header: HeaderComponent;
-
-  constructor(public scrollToView: ViewportScroller) {}
-
-  ngAfterViewInit() {
-    this.observer.observe(document.getElementById('bookHeader'));
+    );
+    gsap.fromTo(
+      '#award-image',
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '#award-image',
+          start: 'top bottom',
+          end: 'top 75%',
+          scrub: true,
+        },
+      }
+    );
   }
 }

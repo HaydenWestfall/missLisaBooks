@@ -1,41 +1,32 @@
-import { ViewportScroller } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
-import { HeaderComponent } from '../header/header.component';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-shop-page',
   templateUrl: './shop-page.component.html',
-  styleUrls: ['./shop-page.component.scss']
+  styleUrls: ['./shop-page.component.scss'],
 })
-export class ShopPageComponent {
+export class ShopPageComponent implements OnInit {
   SvgIcon = SvgIcon;
 
-  observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        this.header.show();
+  ngOnInit() {
+    gsap.fromTo(
+      '#shop-title',
+      {
+        y: 50,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        scrollTrigger: {
+          trigger: '#shop-title',
+          start: 'top bottom',
+          end: 'top 75%',
+          scrub: true,
+        },
       }
-    });
-  });
-
-  @ViewChild('header') header: HeaderComponent;
-
-  constructor(public scrollToView: ViewportScroller) {}
-
-  ngAfterViewInit() {
-    this.observer.observe(document.getElementById('shopHeader'));
-  }
-
-  horizontalScroll(container: HTMLElement, element: HTMLElement, dir: string): void {
-    const scrollPos = (dir === 'left')
-    ? container.scrollLeft - element.offsetWidth
-    : container.scrollLeft + element.offsetWidth;
-
-    container.scrollTo({
-      top: 0,
-      left: scrollPos,
-      behavior: 'smooth'
-    })
+    );
   }
 }
