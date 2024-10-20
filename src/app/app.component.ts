@@ -12,6 +12,7 @@ import { showForm } from 'src/animation';
 import Draggable from 'gsap/Draggable';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
+import Lenis from 'lenis';
 
 @Component({
   selector: 'app-root',
@@ -24,8 +25,6 @@ export class AppComponent implements OnInit {
   SvgIcon = SvgIcon;
   formData: FormGroup;
 
-  showContactForm = false;
-
   constructor(
     public scrollToView: ViewportScroller,
     private builder: FormBuilder,
@@ -33,6 +32,14 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const lenis = new Lenis();
+    lenis.on('scroll', (e: any) => {});
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
     gsap.registerPlugin(ScrollTrigger, Draggable);
 
     this.formData = this.builder.group({

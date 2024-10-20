@@ -11,8 +11,8 @@
   background-color: white;
 
   .platform-cards {
-    width: 100%;
-    max-width: 65rem;
+    width: 85%;
+    max-width: 62rem;
     display: grid;
     grid-auto-columns: calc(calc(100% / 3) - 20px);
     grid-column-gap: 30px;
@@ -35,7 +35,8 @@
       background-color: white;
       font-size: 1.1rem;
       font-family: "helios-antique";
-      font-weight: 600;
+      font-weight: 500;
+      line-height: 1.7rem;
       text-align: left;
       overflow: hidden;
       border: 1px solid #e2e2e2;
@@ -57,6 +58,8 @@
 
 @media only screen and (max-width: 768px) {
   .platform-page {
+    padding: 30rem 0;
+
     .platform-cards {
       grid-auto-columns: 70vw;
       grid-column-gap: 5vw;
@@ -67,8 +70,9 @@
         scroll-snap-align: center;
 
         div {
-          text-align: center;
-          font-size: 1rem;
+          text-align: left;
+          font-size: 3.5rem;
+          padding: 5rem;
         }
       }
     }

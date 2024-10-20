@@ -1,27 +1,84 @@
 <div class="landing-page" #landing id="test">
-      <div class="hero">
-        <h1>
-            <span *ngFor="let letter of heroTextChunks; let i = index" [ngClass]="{'fade': i < characterIndex}">{{letter}} </span>
-        </h1>
-        <div class="button-wrapper">
-            <app-button (buttonClicked)="scrollToElement('Shop')" text="Shop Now"
-                btn-bg="var(--secondary-color)" btn-border="var(--secondary-color)"
-                btn-color="white" hoverBg="transparent" hoverBorder="var(--secondary-color)" hoverColor="white"
-                *ngIf="showAction" @fadeInOutQuick>Shop Now</app-button>
-        </div>
+  <div class="hero">
+    <div id="hero-text">
+      <span
+        *ngFor="let letter of heroTextChunks; let i = index"
+        [ngClass]="{ fade: i < characterIndex }"
+        >{{ letter }}
+      </span>
+    </div>
+    <div class="button-wrapper">
+      <app-button
+        (buttonClicked)="scrollToElement('Shop')"
+        text="Shop Now"
+        btn-bg="var(--secondary-color)"
+        btn-border="var(--secondary-color)"
+        btn-color="white"
+        hoverBg="transparent"
+        hoverBorder="var(--secondary-color)"
+        hoverColor="white"
+        *ngIf="showAction"
+        @fadeInOutQuick
+        >Shop Now</app-button
+      >
+      <app-button
+        (buttonClicked)="scrollToElement('Contact')"
+        text="Contact"
+        btn-bg="var(--primary-color)"
+        btn-border="white"
+        btn-color="white"
+        hoverBg="transparent"
+        hoverBorder="#dddddd"
+        hoverColor="#dddddd"
+        *ngIf="showAction"
+        @fadeInOutQuick
+        >Contact</app-button
+      >
+    </div>
+  </div>
+  <!-- <div
+    class="animated-background"
+    [ngStyle]="{ width: scrollIncrement * scrollPosition + 'px' }"
+  ></div> -->
+  <div class="graphic">
+    <div id="image-wrapper" class="images">
+      <img
+        id="riggs"
+        alt="Riggs sitting in a chair"
+        src="../../../assets/img/riggs.webp"
+      />
+      <img
+        id="maddalena"
+        alt="Maddalena posing for the camera"
+        src="../../../assets/img/maddalena.webp"
+      />
+      <img
+        id="faith"
+        alt="Faith sitting on a bike"
+        src="../../../assets/img/faith.webp"
+      />
+      <img
+        id="riggs-repeat"
+        alt="Riggs repeat"
+        src="../../../assets/img/riggs.webp"
+      />
+    </div>
+    <div id="button-wrapper" class="learn-more-button">
+      <div id="dash-border-wrapper" class="border-wrapper">
+        <div id="dash-border" class="border"></div>
       </div>
-      <div class="animated-background" [ngStyle]="{'width': scrollIncrement * scrollPosition + 'px'}"></div>
-      <div class="graphic">
-            <div class="graphic-wrapper">
-                <svg-icon [name]="SvgIcon.HERO_BG"></svg-icon>
-                <div *ngFor="let kid of kids; let i = index" class="person" [ngClass]="kid.id" (click)="kidSelected = kid">
-                    <div class="person-container">
-                        <img [src]="kid.image" class="person-fg" [ngClass]="'position' + i">
-                        <div class="circle-bg" [ngStyle]="{'background': kid.bg}"></div>
-                    </div>
-                </div>
-            </div>
-      </div>
+      <button
+        class="circle-button light"
+        id="hero-contact"
+        (click)="openLearnMore()"
+      >
+        <div id="contact-btn-text">Learn more</div>
+      </button>
+    </div>
+  </div>
 
-      <app-kid-info [selectedKid]="kidSelected" (closeKid)="kidSelected =null"></app-kid-info>
+  <app-kid-info
+    [selectedKid]="kidSelected"
+    (closeKid)="closeLearnMore()"
+  ></app-kid-info>
 </div>

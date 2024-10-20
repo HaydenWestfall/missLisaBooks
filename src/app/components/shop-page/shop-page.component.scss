@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  padding: 10rem 0;
+  padding: 15rem 0;
   background-color: white;
 
   .locations-wrapper {
@@ -50,7 +50,11 @@
 
 @media only screen and (max-width: 768px) {
   .shop-page {
+    padding: 30rem 0;
+
     .locations-wrapper {
+      max-width: unset;
+
       .locations {
         width: 100%;
         display: grid;
@@ -67,9 +71,10 @@
         .location {
           width: 70vw;
           scroll-snap-align: center;
+          height: 40rem;
 
           img {
-            max-width: 55vw;
+            width: 30rem !important;
           }
         }
       }

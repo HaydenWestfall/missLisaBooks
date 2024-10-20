@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Default page</title>
-        <link rel="icon" type="image/x-icon" href="https://hpanel.hostinger.com/favicons/hostinger.png">
+        <link rel="icon" type="image/x-icon" href="https://hpanel.hostinger.com/favicons/hostinger.webp">
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
         <meta content="Default page" name="description">
@@ -149,7 +149,7 @@
                         id="image0_793_7454" 
                         width="2320"
                         height="2296"
-                        href="https://cdn.hostinger.com/hostinger_welcome/v2/man1.png"
+                        href="https://cdn.hostinger.com/hostinger_welcome/v2/man1.webp"
                     />
                 </defs>
             </svg>

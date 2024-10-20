@@ -1,21 +1,30 @@
-
 <div *ngIf="selectedKid" class="quote-overlay" @fadeInOut>
-    <div class="kid-image">
-        <div class="kid-wrapper" [ngStyle]="{'background-color': selectedKid.bg}">
-            <img [src]="selectedKid.image">
-        </div>
-        <div style="text-align: center">
-            <span>Meet</span><br />
-            <span>{{selectedKid.name}}</span>
-        </div>
+  <div class="kid-image">
+    <div class="kid-wrapper" [ngStyle]="{ 'background-color': selectedKid.bg }">
+      <img
+        [ngStyle]="{ 'object-position': selectedKid.imagePos }"
+        [src]="selectedKid.image"
+      />
     </div>
-    <div class="quote">
-        <span>{{selectedKid.quote}}</span>
-        <br /><br /><span>- {{selectedKid.quoteGivenBy}}</span>
+    <div style="text-align: center">
+      <span>Meet</span><br />
+      <span>{{ selectedKid.name }}</span>
     </div>
+  </div>
+  <div class="quote">
+    <span>{{ selectedKid.quote }}</span>
+    <br /><br /><span>- {{ selectedKid.quoteGivenBy }}</span>
+  </div>
 
-    <app-button (buttonClicked)="closeKid.emit()" text="Back"
-        btn-bg="transparent" btn-border="white" btn-color="white" hoverBg="white"
-        hoverBorder="white" hoverColor="black"
-        >Shop Now</app-button>
+  <app-button
+    (buttonClicked)="closeKid.emit()"
+    text="Back"
+    btn-bg="transparent"
+    btn-border="white"
+    btn-color="white"
+    hoverBg="white"
+    hoverBorder="white"
+    hoverColor="black"
+    >Shop Now</app-button
+  >
 </div>

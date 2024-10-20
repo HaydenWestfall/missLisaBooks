@@ -1,110 +1,134 @@
-
 .footer-page {
-    width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  padding: 3rem 5rem 1rem 5rem;
+  background-color: white;
+  overflow: hidden;
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1vw;
+    color: #a5a09d;
+
+    .header {
+      font-family: "courgette";
+      font-size: 2.25vw;
+      margin-bottom: 2rem;
+      color: #767270;
+    }
+
+    a {
+      font-family: "helios-antique";
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 3rem 0;
+
+    svg {
+      color: #0f1117d5;
+    }
+  }
+
+  .copyright {
+    position: relative;
+    display: flex;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    align-items: center;
+    color: #0f111759;
+
+    svg-icon {
+      flex: 0 0 auto;
+      max-width: 0.8rem;
+    }
+  }
+
+  .logo-watermark {
     position: absolute;
-    padding: 3rem 5rem 1rem 5rem;
-    background-color: white;
-    overflow: hidden;
-    
+    right: -5vw;
+    bottom: -8rem;
+    height: 100%;
+    opacity: 0.2;
+
+    img {
+      height: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .footer-page {
+    padding: 8rem 6rem 6rem 6rem;
+
     .links {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        font-size: 1vw;
-        color: #A5A09D;
+      font-size: 5rem;
+      gap: 3rem;
 
-        .header {
-            font-family: 'courgette';
-            font-size: 2.25vw;
-            margin-bottom: 2rem;
-            color: #767270;
-        }
+      .header {
+        font-size: 5rem;
+        margin-bottom: 0.5rem;
+        color: #000000;
+      }
 
-        a {
-            font-family: 'helios-antique';
-            width: fit-content;
-            cursor: pointer;
-        }
+      a {
+        color: black;
+        font-weight: 500;
+        width: fit-content;
+        cursor: pointer;
+        font-size: 3.5rem;
+      }
     }
 
     .social-links {
-        display: flex;
-        gap: 1rem;
-        align-items: center;
-        padding: 3rem 0;
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      padding: 9rem 0;
 
+      a {
         svg {
-            color: #0f1117d5
+          height: 3.75rem !important;
         }
-
+      }
     }
 
     .copyright {
-        position: relative;
-        display: flex;
-        gap: 0.3rem;
-        font-size: 0.8rem;
-        align-items: center;
-        color: #0f111759;
+      position: relative;
+      display: flex;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      align-items: center;
+      color: #0f111759;
 
-        svg-icon {
-            flex: 0 0 auto;
-            max-width: 0.8rem;
-        }
+      svg-icon {
+        display: none;
+      }
+
+      span {
+        font-family: "helios-antique";
+        font-size: 2rem;
+      }
     }
 
     .logo-watermark {
-        position: absolute;
-        right: -5vw;
-        bottom: -8rem;
+      position: absolute;
+      right: -30vw;
+      bottom: -2rem;
+      height: 70%;
+      opacity: 0.2;
+
+      img {
         height: 100%;
-        opacity: 0.2;
-
-        img {
-            height: 80%;
-        }
+      }
     }
-}
-
-
-@media only screen and (max-width: 768px) {
-    .footer-page {
-        padding: 3rem 2rem 2rem 2rem;
-
-        .links {
-            font-size: 1rem;
-            gap: 1rem;
-
-            .header {
-                font-size: 1.5rem;
-                margin-bottom: 0.5rem;
-                color: #000000;
-            }
-    
-            a {
-                color: black;
-                font-weight: 500;
-                width: fit-content;
-                cursor: pointer;
-            }
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .logo-watermark {
-            position: absolute;
-            right: -30vw;
-            bottom: -2rem;
-            height: 70%;
-            opacity: 0.2;
-    
-            img {
-                height: 100%;
-            }
-        }
-    }
+  }
 }
