@@ -8,8 +8,8 @@ describe('PlatformPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlatformPageComponent ]
-    })
+    imports: [PlatformPageComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(PlatformPageComponent);

@@ -45,6 +45,41 @@ html body {
   font-weight: 500;
 }
 
+/* Enter/leave animation classes, used with Angular's animate.enter / animate.leave */
+@keyframes mlb-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mlb-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: mlb-fade-in 500ms ease-in-out;
+}
+
+.fade-out {
+  animation: mlb-fade-out 425ms ease-out;
+}
+
+.fade-in-quick {
+  animation: mlb-fade-in 250ms ease-in-out 150ms backwards;
+}
+
+.fade-out-quick {
+  animation: mlb-fade-out 250ms ease-out;
+}
+
 .header {
   font-size: 6vw;
 }

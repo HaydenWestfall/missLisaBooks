@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
 import { gsap } from 'gsap';
 
 @Component({
-  selector: 'app-shop-page',
-  templateUrl: './shop-page.component.html',
-  styleUrls: ['./shop-page.component.scss'],
+    selector: 'app-shop-page',
+    templateUrl: './shop-page.component.html',
+    styleUrls: ['./shop-page.component.scss']
 })
 export class ShopPageComponent implements OnInit {
   SvgIcon = SvgIcon;

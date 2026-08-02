@@ -1,13 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { gsap } from 'gsap';
 
+
 @Component({
-  selector: 'app-contact-page',
-  templateUrl: './contact-page.component.html',
-  styleUrls: ['./contact-page.component.scss'],
+    selector: 'app-contact-page',
+    templateUrl: './contact-page.component.html',
+    styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit {
-  @Output('showContactForm') showContactForm = new EventEmitter<any>();
+  readonly showContactForm = output<void>();
 
   ngOnInit() {
     gsap.fromTo(

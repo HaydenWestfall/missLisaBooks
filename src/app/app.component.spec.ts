@@ -1,35 +1,36 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
+import { provideHttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
+      imports: [AppComponent],
+      providers: [provideHttpClient()],
     }).compileComponents();
   });
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(fixture.componentInstance).toBeTruthy();
   });
 
-  it(`should have as title 'missLisaBooks'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('missLisaBooks');
-  });
-
-  it('should render title', () => {
+  it('should render every page section', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('missLisaBooks app is running!');
+
+    for (const section of [
+      'app-navbar',
+      'app-landing-page',
+      'app-book-page',
+      'app-platform-page',
+      'app-about-page',
+      'app-shop-page',
+      'app-contact-page',
+      'app-footer',
+    ]) {
+      expect(compiled.querySelector(section)).toBeTruthy();
+    }
   });
 });

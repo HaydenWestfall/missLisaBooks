@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 export enum SvgIcon {
   ANGLE,
@@ -8,19 +8,18 @@ export enum SvgIcon {
   HERO_BG,
   LOGO,
   TIMES,
-  UNDEFINED
+  UNDEFINED,
 }
 
 @Component({
   selector: 'svg-icon',
   templateUrl: './svg-icons.component.html',
   styles: ['svg { width: 100%; height: 100% }'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SvgIconsComponent {
-  SvgIcon = SvgIcon;
+  readonly SvgIcon = SvgIcon;
 
-  @Input() name: SvgIcon = SvgIcon.UNDEFINED;
-  @Input() width: string = '';
-  @Input() height: string = '';
+  readonly name = input<SvgIcon>(SvgIcon.UNDEFINED);
+  readonly width = input<string>('');
+  readonly height = input<string>('');
 }
