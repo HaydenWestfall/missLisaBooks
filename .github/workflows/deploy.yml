@@ -1,0 +1,93 @@
+name: Build, Tag & Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Never let two deploys write to the server at the same time.
+concurrency:
+  group: production-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: write # needed to push the release tag
+
+jobs:
+  deploy:
+    name: Deploy to Hostinger
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so we can see existing tags
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Unit tests
+        run: npm run test:ci
+
+      - name: Build (production)
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -f dist/miss-lisa-books/browser/index.html
+          test -f dist/miss-lisa-books/browser/.htaccess
+
+      - name: Deploy to Hostinger via FTPS
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps # explicit TLS on port 21
+          # Hostinger only exposes a bare IP, which can't match its
+          # *.hstgr.io wildcard cert. Traffic is still encrypted; the
+          # server's identity just isn't verified against the cert.
+          security: loose
+          local-dir: ./dist/miss-lisa-books/browser/
+          # The FTP account is already chrooted to public_html, so the
+          # server root IS public_html. Anything else nests a folder.
+          server-dir: ${{ vars.FTP_SERVER_DIR || './' }}
+          # Keep the sync-state file out of the way, and never wipe
+          # anything the build doesn't own.
+          state-name: .ftp-deploy-sync-state.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.DS_Store
+
+      # Tag only after the deploy succeeds, so a tag always means
+      # "this commit is live".
+      - name: Create release tag
+        id: tag
+        run: |
+          VERSION="v$(node -p "require('./package.json').version")"
+          if git rev-parse "$VERSION" >/dev/null 2>&1; then
+            echo "Tag $VERSION already exists - skipping tag creation."
+            echo "created=false" >> "$GITHUB_OUTPUT"
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git tag -a "$VERSION" -m "Release $VERSION"
+            git push origin "$VERSION"
+            echo "created=true" >> "$GITHUB_OUTPUT"
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Summary
+        run: |
+          echo "### Deployed ${{ steps.tag.outputs.version }} :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "New tag created: ${{ steps.tag.outputs.created }}" >> $GITHUB_STEP_SUMMARY
