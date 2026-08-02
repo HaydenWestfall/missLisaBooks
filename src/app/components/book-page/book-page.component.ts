@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { gsap } from 'gsap';
 
 @Component({
-  selector: 'app-book-page',
-  templateUrl: './book-page.component.html',
-  styleUrls: ['./book-page.component.scss'],
+    selector: 'app-book-page',
+    templateUrl: './book-page.component.html',
+    styleUrls: ['./book-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class BookPageComponent implements OnInit {
   ngOnInit() {

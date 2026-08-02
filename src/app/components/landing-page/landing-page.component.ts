@@ -6,16 +6,19 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ChangeDetectionStrategy
 } from '@angular/core';
-import { animatedBackground, fadeInOut, fadeInOutQuick } from 'src/animation';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { animatedBackground, fadeInOut, fadeInOutQuick } from '../../../animation';
+import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
 import { gsap } from 'gsap';
 
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.scss'],
-  animations: [animatedBackground, fadeInOutQuick],
+    selector: 'app-landing-page',
+    templateUrl: './landing-page.component.html',
+    styleUrls: ['./landing-page.component.scss'],
+    animations: [animatedBackground, fadeInOutQuick],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   SvgIcon = SvgIcon;

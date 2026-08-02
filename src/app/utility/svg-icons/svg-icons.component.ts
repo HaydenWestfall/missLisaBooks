@@ -12,10 +12,11 @@ export enum SvgIcon {
 }
 
 @Component({
-  selector: 'svg-icon',
-  templateUrl: './svg-icons.component.html',
-  styles: ['svg { width: 100%; height: 100% }'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'svg-icon',
+    templateUrl: './svg-icons.component.html',
+    styles: ['svg { width: 100%; height: 100% }'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SvgIconsComponent {
   SvgIcon = SvgIcon;

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,30 +19,23 @@ import { KidInfoComponent } from './components/kid-info/kid-info.component';
 import { ButtonComponent } from './components/button/button.component';
 import { SplitPipe } from './pipes/split.pipe';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    FooterComponent,
-    NavbarComponent,
-    SvgIconsComponent,
-    LandingPageComponent,
-    PlatformPageComponent,
-    AboutPageComponent,
-    BookPageComponent,
-    ShopPageComponent,
-    ContactPageComponent,
-    KidInfoComponent,
-    ButtonComponent,
-    SplitPipe,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        FooterComponent,
+        NavbarComponent,
+        SvgIconsComponent,
+        LandingPageComponent,
+        PlatformPageComponent,
+        AboutPageComponent,
+        BookPageComponent,
+        ShopPageComponent,
+        ContactPageComponent,
+        KidInfoComponent,
+        ButtonComponent,
+        SplitPipe,
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule], providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())] })
 export class AppModule {}

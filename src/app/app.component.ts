@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SvgIcon } from './utility/svg-icons/svg-icons.component';
 import {
   FormBuilder,
@@ -8,17 +8,19 @@ import {
   FormGroup,
 } from '@angular/forms';
 import { EmailService } from './services/email.service';
-import { showForm } from 'src/animation';
+import { showForm } from '../animation';
 import Draggable from 'gsap/Draggable';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 import Lenis from 'lenis';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [showForm],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    animations: [showForm],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class AppComponent implements OnInit {
   title = 'missLisaBooks';

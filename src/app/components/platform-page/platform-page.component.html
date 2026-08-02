@@ -4,9 +4,11 @@
     <div id="platform-title" class="section-header">Believe in Children</div>
   </div>
   <div class="platform-cards">
-    <div *ngFor="let card of cards" class="platform-card">
-      <img [src]="card.image" alt="child-learning" />
-      <div>{{ card.description }}</div>
-    </div>
+    @for (card of cards; track card) {
+      <div class="platform-card">
+        <img [src]="card.image" alt="child-learning" />
+        <div>{{ card.description }}</div>
+      </div>
+    }
   </div>
 </div>

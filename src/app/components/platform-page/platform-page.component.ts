@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { SvgIcon } from 'src/app/utility/svg-icons/svg-icons.component';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
 import { gsap } from 'gsap';
 
 @Component({
-  selector: 'app-platform-page',
-  templateUrl: './platform-page.component.html',
-  styleUrls: ['./platform-page.component.scss'],
+    selector: 'app-platform-page',
+    templateUrl: './platform-page.component.html',
+    styleUrls: ['./platform-page.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Eager,
+    standalone: false
 })
 export class PlatformPageComponent implements OnInit {
   SvgIcon = SvgIcon;
