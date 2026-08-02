@@ -1,0 +1,52 @@
+<footer class="footer">
+  <div class="shell">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <img
+          class="footer__mark"
+          src="assets/img/logo-mlb.webp"
+          alt=""
+          width="140"
+          height="115"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="footer__name">Miss Lisa Books</p>
+        <p class="footer__motto">
+          Let’s be irrationally crazy about as many kids as we possibly can.
+        </p>
+      </div>
+
+      <nav class="footer__nav" aria-label="Footer">
+        <p class="footer__heading">Explore</p>
+        @for (link of navLinks; track link.id) {
+          <a [href]="'#' + link.id">{{ link.label }}</a>
+        }
+        <a href="#booking">Book a visit</a>
+      </nav>
+
+      <div class="footer__contact">
+        <p class="footer__heading">Get in touch</p>
+        <a class="footer__link-icon" [href]="'mailto:' + contact.email">
+          <app-icon name="email" />
+          {{ contact.email }}
+        </a>
+        <a
+          class="footer__link-icon"
+          [href]="contact.instagram"
+          target="_blank"
+          rel="noopener"
+        >
+          <app-icon name="instagram" />
+          {{ contact.instagramHandle }}
+        </a>
+        <p class="footer__note">{{ contact.travelNote }}</p>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© {{ year }} Miss Lisa Books LLC</p>
+      <p>Illustrations by Parker Buhrman</p>
+    </div>
+  </div>
+</footer>

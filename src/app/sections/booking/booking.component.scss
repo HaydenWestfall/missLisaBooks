@@ -1,0 +1,263 @@
+.booking {
+  position: relative;
+  background:
+    radial-gradient(
+      36rem 26rem at 12% 12%,
+      color-mix(in srgb, var(--honey-soft) 62%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      34rem 26rem at 92% 84%,
+      color-mix(in srgb, var(--sky-soft) 70%, transparent),
+      transparent 70%
+    ),
+    var(--paper);
+}
+
+.booking__grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* -- Intro column -------------------------------------------------------- */
+.booking__title {
+  margin-top: 0.7rem;
+  font-size: var(--step-4);
+}
+
+.booking__lede {
+  margin-top: 1.15rem;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+}
+
+.booking__points {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.75rem;
+}
+
+.booking__points li {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.booking__points app-icon {
+  font-size: 0.8rem;
+  color: var(--sage);
+}
+
+.booking__direct {
+  margin-top: 2rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--line);
+}
+
+.booking__direct-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.booking__email {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 40, "WONK" 1;
+  color: var(--clay);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.booking__email:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.booking__meta {
+  margin-top: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink-faint);
+}
+
+/* -- Form ---------------------------------------------------------------- */
+.booking__form-wrap {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  box-shadow: var(--shadow-lg);
+}
+
+.form {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.field label span {
+  color: var(--clay);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--line-strong);
+  background: var(--paper);
+  font-size: 1rem;
+  transition: border-color 0.18s var(--ease), box-shadow 0.18s var(--ease),
+    background-color 0.18s var(--ease);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.field select {
+  appearance: none;
+  /* Chevron drawn inline so the control matches the inputs on every OS. */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236b5a49' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 1.05rem;
+  padding-right: 2.6rem;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--clay);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--clay) 20%, transparent);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-faint);
+}
+
+.field input.is-invalid,
+.field select.is-invalid,
+.field textarea.is-invalid {
+  border-color: #b4402c;
+  background: #fdf3f1;
+}
+
+.field__error {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #9b3520;
+}
+
+.form__submit {
+  margin-top: 0.5rem;
+}
+
+.form__note {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  text-align: center;
+}
+
+/* -- Success state ------------------------------------------------------- */
+.done {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.done__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-pill);
+  background: var(--sage-soft);
+  color: var(--sage-deep);
+  font-size: 1.15rem;
+}
+
+.done__title {
+  margin-top: 1.15rem;
+  font-size: var(--step-2);
+}
+
+.done__text {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.done__preview {
+  width: 100%;
+  margin-top: 1.25rem;
+  padding: 1rem 1.1rem;
+  max-height: 15rem;
+  overflow: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
+  font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.done__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+/* -- Breakpoints --------------------------------------------------------- */
+@media (min-width: 34rem) {
+  .form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem 1.25rem;
+  }
+
+  .field--wide,
+  .form__submit {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 62rem) {
+  .booking__grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+
+  .booking__intro {
+    position: sticky;
+    top: calc(var(--header-h) + 2rem);
+  }
+}

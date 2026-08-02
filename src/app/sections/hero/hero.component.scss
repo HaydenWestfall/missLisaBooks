@@ -1,0 +1,268 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(2rem, 6vw, 5rem));
+  padding-bottom: 0;
+  z-index: 1;
+  isolation: isolate;
+}
+
+/* Soft watercolour wash behind everything. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% 20%;
+  z-index: -1;
+  background:
+    radial-gradient(
+      42rem 30rem at 78% 18%,
+      color-mix(in srgb, var(--sky-soft) 85%, transparent),
+      transparent 68%
+    ),
+    radial-gradient(
+      34rem 26rem at 12% 8%,
+      color-mix(in srgb, var(--honey-soft) 78%, transparent),
+      transparent 66%
+    ),
+    radial-gradient(
+      38rem 30rem at 62% 78%,
+      color-mix(in srgb, var(--sage-soft) 65%, transparent),
+      transparent 70%
+    );
+  filter: blur(6px);
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(2.5rem, 6vw, 4rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+  align-items: center;
+}
+
+/* -- Copy ---------------------------------------------------------------- */
+.hero__copy {
+  max-width: 38rem;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.42rem 0.95rem 0.42rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, #fff 72%, transparent);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  font-size: var(--step--1);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--clay-deep);
+}
+
+.hero__eyebrow app-icon {
+  font-size: 0.95rem;
+  color: var(--honey);
+}
+
+.hero__title {
+  margin-top: 1.15rem;
+  font-size: var(--step-5);
+  font-variation-settings:
+    "SOFT" 40,
+    "WONK" 1;
+  letter-spacing: -0.03em;
+}
+
+.hero__lede {
+  margin-top: 1.35rem;
+  font-size: var(--step-1);
+  color: var(--ink-soft);
+  max-width: 34rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.hero__proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.4rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.hero__proof-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.hero__proof-item app-icon {
+  font-size: 0.85rem;
+  color: var(--sage);
+}
+
+/* -- Collage ------------------------------------------------------------- */
+.hero__art {
+  position: relative;
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(0.5rem, 1.6vw, 0.9rem);
+  margin: 0;
+}
+
+.collage__card {
+  position: relative;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  overflow: hidden;
+  background: var(--paper-deep);
+  border: 6px solid #fff;
+  box-shadow: var(--shadow-md);
+  /* Fan the three cards out and stagger their heights. */
+  transform: rotate(calc((var(--i) - 1) * 2.6deg))
+    translateY(calc(var(--i) * -0.9rem + 0.9rem));
+  transition:
+    transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+  animation: card-in 0.85s var(--ease) backwards;
+  animation-delay: calc(120ms + (var(--i) * 110ms));
+}
+
+.collage__card:hover {
+  transform: rotate(calc((var(--i) - 1) * 2.6deg))
+    translateY(calc(var(--i) * -0.9rem - 0.1rem));
+  box-shadow: var(--shadow-lg);
+}
+
+.collage__card img {
+  width: 100%;
+  aspect-ratio: 3 / 4.15;
+  object-fit: cover;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: rotate(0deg) translateY(2.5rem);
+  }
+}
+
+/* -- Floating sticker ---------------------------------------------------- */
+.sticker {
+  position: absolute;
+  left: -0.5rem;
+  bottom: -1.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: var(--clay);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.25;
+  box-shadow: var(--shadow-md);
+  transform: rotate(-4deg);
+  animation: card-in 0.85s var(--ease) 0.5s backwards;
+}
+
+.sticker app-icon {
+  font-size: 1.15rem;
+  opacity: 0.9;
+}
+
+/* -- Ribbon marquee ------------------------------------------------------ */
+.ribbon {
+  position: relative;
+  overflow: hidden;
+  padding-block: 0.85rem;
+  background: var(--sage-deep);
+  color: color-mix(in srgb, #fff 88%, var(--sage-soft));
+  transform: rotate(-0.75deg) scaleX(1.04);
+  margin-block: 1.5rem -0.5rem;
+}
+
+.ribbon__track {
+  display: flex;
+  width: max-content;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  animation: marquee 34s linear infinite;
+}
+
+.ribbon__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 2.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.7vw, 1.2rem);
+  font-weight: 500;
+  font-variation-settings:
+    "SOFT" 50,
+    "WONK" 1;
+  white-space: nowrap;
+}
+
+.ribbon__item app-icon {
+  font-size: 0.7rem;
+  color: var(--honey);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* -- Breakpoints --------------------------------------------------------- */
+@media (min-width: 62rem) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+    gap: clamp(3rem, 5vw, 5rem);
+  }
+
+  .sticker {
+    left: -2.25rem;
+    bottom: -2.25rem;
+    font-size: 0.88rem;
+    padding: 0.8rem 1.3rem;
+  }
+}
+
+@media (max-width: 34rem) {
+  .collage {
+    gap: 0.4rem;
+  }
+
+  .collage__card {
+    border-width: 4px;
+  }
+
+  .sticker {
+    left: 50%;
+    bottom: -2rem;
+    transform: translateX(-50%) rotate(-3deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collage__card,
+  .sticker {
+    animation: none;
+  }
+
+  .ribbon__track {
+    animation-duration: 180s;
+  }
+}

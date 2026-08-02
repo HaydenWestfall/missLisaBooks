@@ -1,11 +1,11 @@
 {
   "name": "Miss Lisa Books",
   "short_name": "Miss Lisa Books",
-  "description": "Children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad.",
+  "description": "School and library author visits, read-alouds and book signings with children's author Lisa Hildebrand. Every child goes home with a signed book.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#F8FBF9",
-  "theme_color": "#537864",
+  "background_color": "#fdf8ef",
+  "theme_color": "#fdf8ef",
   "icons": [
     {
       "src": "assets/img/favicon.webp",

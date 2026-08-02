@@ -1,0 +1,73 @@
+.about {
+  background: var(--paper-warm);
+  border-block: 1px solid var(--line);
+}
+
+.people {
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+.person {
+  display: grid;
+  gap: clamp(1.5rem, 3.5vw, 3rem);
+  align-items: center;
+}
+
+.person__photo {
+  position: relative;
+  max-width: 22rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 8px solid #fff;
+  box-shadow: var(--shadow-md);
+  rotate: -1.5deg;
+  transition: rotate 0.4s var(--ease);
+}
+
+.person:nth-child(even) .person__photo {
+  rotate: 1.5deg;
+}
+
+.person:hover .person__photo {
+  rotate: 0deg;
+}
+
+.person__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 4.6;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+
+.person__role {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.person__name {
+  margin-top: 0.5rem;
+  font-size: var(--step-3);
+}
+
+.person__text {
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  max-width: 58ch;
+}
+
+@media (min-width: 52rem) {
+  .person {
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
+  }
+
+  /* Alternate sides so the two bios do not read as a stacked list. */
+  .person:nth-child(even) .person__photo {
+    order: 2;
+    justify-self: end;
+  }
+}

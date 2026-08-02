@@ -1,0 +1,61 @@
+<header class="header" [class.header--solid]="isScrolled() || isMenuOpen()">
+  <div class="header__inner shell-wide">
+    <a class="brand" href="#top" (click)="closeMenu()">
+      <img
+        class="brand__mark"
+        src="assets/img/logo-mlb.webp"
+        alt=""
+        width="88"
+        height="72"
+      />
+      <span class="brand__name">Miss Lisa Books</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      @for (link of navLinks; track link.id) {
+        <a class="nav__link" [href]="'#' + link.id">{{ link.label }}</a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn btn--primary btn--sm header__cta" href="#booking">
+        Book a visit
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        [attr.aria-expanded]="isMenuOpen()"
+        aria-controls="mobile-menu"
+        (click)="toggleMenu()"
+      >
+        <app-icon [name]="isMenuOpen() ? 'close' : 'menu'" />
+        <span class="sr-only">{{ isMenuOpen() ? 'Close menu' : 'Open menu' }}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+@if (isMenuOpen()) {
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-menu__nav" aria-label="Primary (mobile)">
+      @for (link of navLinks; track link.id; let i = $index) {
+        <a
+          class="mobile-menu__link"
+          [href]="'#' + link.id"
+          [style.--i]="i"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+    <a
+      class="btn btn--primary btn--block"
+      href="#booking"
+      (click)="closeMenu()"
+    >
+      Book a visit
+      <app-icon name="arrow-right" />
+    </a>
+  </div>
+}

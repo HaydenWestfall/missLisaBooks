@@ -1,0 +1,98 @@
+<section class="section visits" id="visits">
+  <div class="shell">
+    <header class="section-head--center" appReveal>
+      <p class="eyebrow eyebrow--center">Bring Miss Lisa to you</p>
+      <h2 class="section-title">Miss Lisa comes to your school</h2>
+      <p class="section-lede">
+        Twenty-six years in a special education classroom taught Lisa exactly how
+        to hold a room full of kids. She reads the story, tells them the true
+        part, answers every question they can think of — and signs a book for
+        every single child before she leaves.
+      </p>
+    </header>
+
+    <!-- Visit formats -->
+    <ul class="formats">
+      @for (format of formats; track format.id; let i = $index) {
+        <li class="format card" appReveal [revealDelay]="i * 90">
+          <span class="tag" [class]="'tag ' + format.tagClass">{{ format.tag }}</span>
+          <h3 class="format__title">{{ format.title }}</h3>
+          <p class="format__audience">
+            <app-icon name="users" />
+            {{ format.audience }}
+          </p>
+          <p class="format__body">{{ format.description }}</p>
+          <ul class="format__details">
+            @for (detail of format.details; track detail) {
+              <li>
+                <app-icon name="check" />
+                {{ detail }}
+              </li>
+            }
+          </ul>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <!-- What every visit includes -->
+  <div class="shell">
+    <div class="includes" appReveal>
+      <div class="includes__lead">
+        <h3 class="includes__title">Every visit includes</h3>
+        <p class="includes__body">
+          No add-ons, no upsells, no child left holding nothing while their
+          friends get a book.
+        </p>
+        <p class="includes__highlight">
+          <app-icon name="pen" />
+          <span>A signed copy for every child in the room</span>
+        </p>
+      </div>
+
+      <ul class="includes__list">
+        @for (item of includes; track item) {
+          <li class="includes__item">
+            <span class="includes__check"><app-icon name="check" /></span>
+            {{ item }}
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  <div class="shell">
+    <!-- How it works -->
+    <div class="steps">
+      <h3 class="steps__title" appReveal>How booking works</h3>
+      <ol class="steps__list">
+        @for (step of steps; track step.number; let i = $index) {
+          <li class="step" appReveal [revealDelay]="i * 90">
+            <span class="step__number">{{ step.number }}</span>
+            <h4 class="step__title">{{ step.title }}</h4>
+            <p class="step__body">{{ step.body }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing" appReveal>
+      <div class="pricing__body">
+        <h3 class="pricing__title">{{ pricing.title }}</h3>
+        <p class="pricing__text">{{ pricing.body }}</p>
+        <p class="pricing__note">{{ pricing.note }}</p>
+      </div>
+      <div class="pricing__action">
+        <a class="btn btn--primary" href="#booking">
+          Get in touch about your event
+          <app-icon name="arrow-right" />
+        </a>
+        <p class="pricing__meta">
+          {{ contact.travelNote }}<br />
+          Based in {{ contact.baseLocation }}
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

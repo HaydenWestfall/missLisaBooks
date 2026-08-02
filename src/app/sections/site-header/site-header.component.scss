@@ -1,0 +1,191 @@
+:host {
+  display: contents;
+}
+
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 100;
+  height: var(--header-h);
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s var(--ease), box-shadow 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+  border-bottom: 1px solid transparent;
+}
+
+.header--solid {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.25);
+  -webkit-backdrop-filter: blur(14px) saturate(1.25);
+  border-bottom-color: var(--line);
+  box-shadow: 0 8px 24px -20px rgba(70, 46, 25, 0.5);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: min(100% - (var(--gutter) * 2), 86rem);
+}
+
+/* -- Brand --------------------------------------------------------------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  text-decoration: none;
+  flex: none;
+}
+
+.brand__mark {
+  width: auto;
+  height: 2.5rem;
+  transition: transform 0.35s var(--ease);
+}
+
+.brand:hover .brand__mark {
+  transform: translateX(3px) rotate(-2deg);
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  font-variation-settings: "SOFT" 40, "WONK" 1;
+  white-space: nowrap;
+}
+
+/* -- Desktop nav --------------------------------------------------------- */
+.nav {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav__link {
+  position: relative;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.18s var(--ease), background-color 0.18s var(--ease);
+}
+
+.nav__link:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper-deep) 70%, transparent);
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: none;
+}
+
+.header__cta {
+  display: none;
+}
+
+/* -- Mobile toggle ------------------------------------------------------- */
+.menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink);
+  transition: background-color 0.18s var(--ease);
+}
+
+.menu-toggle:hover {
+  background: color-mix(in srgb, var(--paper-deep) 70%, transparent);
+}
+
+/* -- Mobile menu panel --------------------------------------------------- */
+.mobile-menu {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1.75rem var(--gutter) calc(2rem + env(safe-area-inset-bottom));
+  background: var(--paper);
+  overflow-y: auto;
+  animation: menu-in 0.28s var(--ease);
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.25rem;
+}
+
+.mobile-menu__link {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 8vw, 2.6rem);
+  font-weight: 600;
+  font-variation-settings: "SOFT" 40, "WONK" 1;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+  animation: link-in 0.4s var(--ease) backwards;
+  animation-delay: calc(60ms + (var(--i) * 55ms));
+}
+
+.mobile-menu__link:active {
+  color: var(--clay);
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes link-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* -- Breakpoints --------------------------------------------------------- */
+@media (min-width: 60rem) {
+  .nav,
+  .header__cta {
+    display: inline-flex;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .brand__mark {
+    height: 2.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu,
+  .mobile-menu__link {
+    animation: none;
+  }
+}

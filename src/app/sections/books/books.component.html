@@ -1,0 +1,126 @@
+<section class="section books" id="books">
+  <div class="shell">
+    <header class="section-head--center" appReveal>
+      <p class="eyebrow eyebrow--center">The books</p>
+      <h2 class="section-title">True stories, written for every reader</h2>
+      <p class="section-lede">
+        Each book comes straight out of a real childhood moment, then gets built
+        around repeated text so the readers who find it hardest still get to turn
+        the page on their own.
+      </p>
+
+      <p class="series-count">
+        <span class="series-count__dots" aria-hidden="true">
+          @for (released of seriesDots; track $index) {
+            <span class="series-count__dot" [class.is-released]="released"></span>
+          }
+        </span>
+        {{ upcoming.released }} of {{ upcoming.count }} books released
+      </p>
+    </header>
+
+    <!-- Featured release -->
+    <article class="featured" appReveal>
+      <div class="featured__art">
+        <img
+          class="featured__cover"
+          [src]="featured.cover"
+          [alt]="featured.coverAlt"
+          width="640"
+          height="640"
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+
+      <div class="featured__body">
+        <span class="tag tag--honey">
+          <app-icon name="star" />
+          {{ featured.badge }}
+        </span>
+        <h3 class="featured__title">{{ featured.title }}</h3>
+
+        @for (paragraph of featured.blurb; track paragraph; let i = $index) {
+          <p class="featured__text">{{ paragraph }}</p>
+          @if (i === 1 && featured.hook) {
+            <p class="featured__hook">{{ featured.hook }}</p>
+          }
+        }
+
+        <div class="buy">
+          <p class="buy__label">Where to buy</p>
+          <div class="buy__links">
+            @for (link of featured.links; track link.url) {
+              <a
+                class="btn btn--secondary btn--sm"
+                [href]="link.url"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ link.label }}
+              </a>
+            }
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Remaining titles + what's still to come -->
+    <ul class="library">
+      @for (book of others; track book.id; let i = $index) {
+        <li class="book card" appReveal [revealDelay]="i * 80">
+          <img
+            class="book__cover"
+            [src]="book.cover"
+            [alt]="book.coverAlt"
+            width="420"
+            height="420"
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="book__body">
+            <h3 class="book__title">{{ book.title }}</h3>
+            @for (paragraph of book.blurb; track paragraph) {
+              <p class="book__text">{{ paragraph }}</p>
+            }
+            <div class="buy buy--compact">
+              @for (link of book.links; track link.url) {
+                <a
+                  class="link-arrow"
+                  [href]="link.url"
+                  [attr.target]="link.url.startsWith('mailto:') ? null : '_blank'"
+                  [attr.rel]="link.url.startsWith('mailto:') ? null : 'noopener'"
+                >
+                  {{ link.label }}
+                  <app-icon name="arrow-right" />
+                </a>
+              }
+            </div>
+          </div>
+        </li>
+      }
+
+      <li class="coming card" appReveal [revealDelay]="others.length * 80">
+        <div class="coming__stack" aria-hidden="true">
+          @for (slot of plannedSlots; track slot) {
+            <span class="coming__spine" [style.--i]="slot"></span>
+          }
+        </div>
+        <div class="coming__body">
+          <span class="tag tag--sky">Coming soon</span>
+          <h3 class="coming__title">{{ upcoming.title }}</h3>
+          <p class="coming__text">{{ upcoming.body }}</p>
+          <a
+            class="link-arrow"
+            [href]="contact.instagram"
+            target="_blank"
+            rel="noopener"
+          >
+            Follow along on Instagram
+            <app-icon name="arrow-right" />
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

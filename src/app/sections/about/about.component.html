@@ -1,0 +1,33 @@
+<section class="section about" id="about">
+  <div class="shell">
+    <header class="section-head--center" appReveal>
+      <p class="eyebrow eyebrow--center">About</p>
+      <h2 class="section-title">The two people behind the books</h2>
+    </header>
+
+    <div class="people">
+      @for (person of people; track person.id; let i = $index) {
+        <article class="person" appReveal [revealDelay]="i * 100">
+          <div class="person__photo">
+            <img
+              [src]="person.photo"
+              [alt]="person.photoAlt"
+              width="440"
+              height="520"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="person__body">
+            <p class="person__role">{{ person.role }}</p>
+            <h3 class="person__name">{{ person.name }}</h3>
+            @for (paragraph of person.bio; track paragraph) {
+              <p class="person__text">{{ paragraph }}</p>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,68 @@
+<section class="hero" id="top">
+  <div class="hero__inner shell-wide">
+    <div class="hero__copy">
+      <p class="hero__eyebrow">
+        <app-icon name="sparkle" />
+        {{ hero.eyebrow }}
+      </p>
+
+      <h1 class="hero__title">{{ hero.title }}</h1>
+
+      <p class="hero__lede">{{ hero.lede }}</p>
+
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#booking">
+          Bring Miss Lisa to your school
+          <app-icon name="arrow-right" />
+        </a>
+        <a class="btn btn--secondary" href="#books">Meet the books</a>
+      </div>
+
+      <ul class="hero__proof">
+        @for (point of hero.proofPoints; track point) {
+          <li class="hero__proof-item">
+            <app-icon name="check" />
+            {{ point }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="hero__art">
+      <ul class="collage">
+        @for (kid of kids; track kid.id; let i = $index) {
+          <li class="collage__card" [style.--i]="i">
+            <img
+              [src]="kid.image"
+              [alt]="kid.alt"
+              [style.object-position]="kid.imagePosition"
+              width="300"
+              height="400"
+              [attr.loading]="i === 0 ? null : 'lazy'"
+              [attr.fetchpriority]="i === 0 ? 'high' : null"
+              decoding="async"
+            />
+          </li>
+        }
+      </ul>
+
+      <div class="sticker">
+        <app-icon name="pen" />
+        <span>Every child leaves<br />with a signed book</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ribbon" aria-hidden="true">
+    <div class="ribbon__track">
+      @for (pass of [0, 1]; track pass) {
+        @for (phrase of ribbon; track phrase) {
+          <span class="ribbon__item">
+            {{ phrase }}
+            <app-icon name="star" />
+          </span>
+        }
+      }
+    </div>
+  </div>
+</section>

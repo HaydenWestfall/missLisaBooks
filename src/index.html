@@ -2,18 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Miss Lisa Books | Children's Books by Lisa Hildebrand</title>
+    <title>
+      Miss Lisa Books | School &amp; Library Author Visits with Lisa Hildebrand
+    </title>
     <meta
       name="description"
-      content="Miss Lisa Books publishes heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad. Shop now on Amazon, Barnes & Noble, and Lucid Books."
+      content="Book children's author Lisa Hildebrand for school assemblies, library story times, and book signings. Every child goes home with a signed copy. True-story picture books written for struggling readers."
     />
     <meta
       name="keywords"
-      content="Miss Lisa Books, Lisa Hildebrand, children's books, Hatching Snappers, Josie and the Toad, kids books, picture books, struggling readers, special education books"
+      content="author school visit, children's author library visit, book signing for schools, Miss Lisa Books, Lisa Hildebrand, author assembly Ohio, read aloud author visit, struggling readers, special education books, Hatching Snappers, Josie and the Toad"
     />
     <meta name="author" content="Lisa Hildebrand" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#537864" />
+    <meta name="theme-color" content="#fdf8ef" />
     <link rel="canonical" href="https://misslisabooks.com/" />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,16 +23,32 @@
     <link rel="apple-touch-icon" href="./assets/img/favicon.webp" />
     <link rel="manifest" href="./manifest.webmanifest" />
 
+    <!-- Preload the two faces used above the fold -->
+    <link
+      rel="preload"
+      href="./assets/fonts/fraunces-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="./assets/fonts/nunito-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Miss Lisa Books" />
     <meta
       property="og:title"
-      content="Miss Lisa Books | Children's Books by Lisa Hildebrand"
+      content="Miss Lisa Books | School &amp; Library Author Visits"
     />
     <meta
       property="og:description"
-      content="Heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad."
+      content="Book children's author Lisa Hildebrand for school assemblies, library story times, and book signings — every child goes home with a signed copy."
     />
     <meta property="og:url" content="https://misslisabooks.com/" />
     <meta
@@ -43,11 +61,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Miss Lisa Books | Children's Books by Lisa Hildebrand"
+      content="Miss Lisa Books | School &amp; Library Author Visits"
     />
     <meta
       name="twitter:description"
-      content="Heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad."
+      content="Book children's author Lisa Hildebrand for school assemblies, library story times, and book signings — every child goes home with a signed copy."
     />
     <meta
       name="twitter:image"
@@ -61,12 +79,13 @@
         "@type": "WebSite",
         "name": "Miss Lisa Books",
         "url": "https://misslisabooks.com/",
-        "description": "Miss Lisa Books publishes heartwarming, true-story-inspired children's books by author Lisa Hildebrand.",
+        "description": "Author visits, read-alouds and book signings for schools and libraries with children's author Lisa Hildebrand.",
         "publisher": {
           "@type": "Organization",
           "name": "Miss Lisa Books LLC",
           "url": "https://misslisabooks.com/",
           "logo": "https://misslisabooks.com/assets/img/logo-mlb.webp",
+          "email": "misslisabooks@gmail.com",
           "sameAs": ["https://www.instagram.com/misslisabooks/"]
         }
       }
@@ -76,14 +95,46 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Lisa Hildebrand",
-        "url": "https://misslisabooks.com/#About",
+        "url": "https://misslisabooks.com/#about",
         "image": "https://misslisabooks.com/assets/img/lisa.webp",
-        "jobTitle": "Author",
+        "jobTitle": "Children's Author and Special Education Teacher",
+        "email": "misslisabooks@gmail.com",
         "worksFor": {
           "@type": "Organization",
           "name": "Miss Lisa Books LLC"
         },
-        "description": "Lisa Hildebrand is the author of Miss Lisa Books, writing children's books inspired by true stories, including Hatching Snappers and Josie and the Toad."
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "Slippery Rock University"
+        },
+        "description": "Lisa Hildebrand is a special education teacher of 26 years and the author of Miss Lisa Books. She visits schools, libraries and community events for read-alouds and book signings, and writes children's books inspired by true stories."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "School and Library Author Visits",
+        "serviceType": "Children's author visit, read-aloud and book signing",
+        "url": "https://misslisabooks.com/#visits",
+        "description": "Miss Lisa visits schools, libraries and community events for read-alouds, Q&A with students, and book signings. Every child receives a signed copy of the book. Pricing is quoted per event.",
+        "provider": {
+          "@type": "Organization",
+          "name": "Miss Lisa Books LLC",
+          "url": "https://misslisabooks.com/",
+          "email": "misslisabooks@gmail.com"
+        },
+        "areaServed": { "@type": "State", "name": "Ohio" },
+        "audience": {
+          "@type": "EducationalAudience",
+          "educationalRole": "student"
+        },
+        "offers": {
+          "@type": "Offer",
+          "url": "https://misslisabooks.com/#booking",
+          "availability": "https://schema.org/InStock",
+          "description": "Pricing is put together per event based on travel, number of sessions, group size and the number of signed books. Get in touch for a quote."
+        }
       }
     </script>
     <script type="application/ld+json">
@@ -91,16 +142,10 @@
         "@context": "https://schema.org",
         "@type": "Book",
         "name": "Hatching Snappers",
-        "url": "https://misslisabooks.com/#Books",
+        "url": "https://misslisabooks.com/#books",
         "image": "https://misslisabooks.com/assets/img/book_stack.webp",
-        "author": {
-          "@type": "Person",
-          "name": "Lisa Hildebrand"
-        },
-        "illustrator": {
-          "@type": "Person",
-          "name": "Parker Buhrman"
-        },
+        "author": { "@type": "Person", "name": "Lisa Hildebrand" },
+        "illustrator": { "@type": "Person", "name": "Parker Buhrman" },
         "publisher": {
           "@type": "Organization",
           "name": "Miss Lisa Books LLC"
@@ -131,16 +176,10 @@
         "@context": "https://schema.org",
         "@type": "Book",
         "name": "Josie and the Toad",
-        "url": "https://misslisabooks.com/#Books",
+        "url": "https://misslisabooks.com/#books",
         "image": "https://misslisabooks.com/assets/img/Josie_and_toad.webp",
-        "author": {
-          "@type": "Person",
-          "name": "Lisa Hildebrand"
-        },
-        "illustrator": {
-          "@type": "Person",
-          "name": "Parker Buhrman"
-        },
+        "author": { "@type": "Person", "name": "Lisa Hildebrand" },
+        "illustrator": { "@type": "Person", "name": "Parker Buhrman" },
         "publisher": {
           "@type": "Organization",
           "name": "Miss Lisa Books LLC"
@@ -149,19 +188,18 @@
         "genre": "Children's Fiction"
       }
     </script>
-
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
     <app-root id="root">
       <noscript>
         <h1>Miss Lisa Books</h1>
         <p>
-          Miss Lisa Books publishes heartwarming, true-story-inspired
-          children's books by author Lisa Hildebrand, including Hatching
-          Snappers and Josie and the Toad. Please enable JavaScript to view
-          this site.
+          Children's author Lisa Hildebrand visits schools, libraries and
+          community events for read-alouds and book signings — and every child
+          goes home with a signed copy. To book a visit, email
+          <a href="mailto:misslisabooks@gmail.com">misslisabooks&#64;gmail.com</a>.
         </p>
+        <p>Please enable JavaScript to view the full site.</p>
       </noscript>
     </app-root>
   </body>
