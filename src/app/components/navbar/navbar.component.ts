@@ -1,39 +1,31 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
-import { panelSlideIn } from './navbar.animation';
+import { injectMediaQuery } from '../../utility/media-query';
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrls: ['./navbar.component.scss'],
-    animations: [panelSlideIn],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  SvgIcon = SvgIcon;
-  showNav = false;
+  private readonly scrollToView = inject(ViewportScroller);
 
-  mediaQuery: any = window.matchMedia('(max-width: 768px)');
-  
-  navbarLinks: string[] = [
+  readonly SvgIcon = SvgIcon;
+  readonly showNav = signal(false);
+  readonly isMobile = injectMediaQuery('(max-width: 768px)');
+
+  readonly navbarLinks: string[] = [
     'Books',
     'Platform',
     'About',
     'Shop',
-    'Contact'
+    'Contact',
   ];
 
-  constructor(public scrollToView: ViewportScroller) {
-    window.onresize = () => {
-      this.mediaQuery = window.matchMedia('(max-width: 768px)');
-    }
-  }
-
   public scrollToElement(element: string) {
-    if (this.showNav) {
-      this.showNav = false;
+    if (this.showNav()) {
+      this.showNav.set(false);
       setTimeout(() => {
         this.scrollToView.scrollToAnchor(element);
       }, 425);

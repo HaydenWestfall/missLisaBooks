@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="about-person">
-      @if (mediaQuery.matches) {
+      @if (isMobile()) {
         <div class="employee-photo">
           <img
             [src]="'../assets/img/parker.webp'"
@@ -79,7 +79,7 @@
           next big road trip across the country.
         </div>
       </div>
-      @if (!mediaQuery.matches) {
+      @if (!isMobile()) {
         <div class="employee-photo">
           <img
             [src]="'../assets/img/parker.webp'"

@@ -1,14 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { map } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Service()
 export class EmailService {
-  private url = "https://mailthis.to/Hayden12667"
+  http = inject(HttpClient);
 
-  constructor(public http: HttpClient) {}
+  private url = "https://mailthis.to/Hayden12667"
 
   sendEmail(input: any) {
     console.log('running');

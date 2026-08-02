@@ -1,9 +1,10 @@
 
-<div style="box-sizing: unset;" [ngStyle]="{
-    width: this.width ? this.width : 'unset',
-    height: this.height ? this.height : 'unset'
-}">
-  @switch (name) {
+<div
+  style="box-sizing: unset"
+  [style.width]="width() || 'unset'"
+  [style.height]="height() || 'unset'"
+>
+  @switch (name()) {
     @case (SvgIcon.LOGO) {
       <svg viewBox="0 0 100 38" fill="none">
         <path d="M36 6.03539V0H66.5932V6.03539H36Z" fill="#EF6C23"/>

@@ -8,8 +8,8 @@ describe('KidInfoComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ KidInfoComponent ]
-    })
+    imports: [KidInfoComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(KidInfoComponent);

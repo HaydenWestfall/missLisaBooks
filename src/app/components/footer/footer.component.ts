@@ -1,18 +1,17 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
+import { Component, inject } from '@angular/core';
+import { SvgIcon, SvgIconsComponent } from '../../utility/svg-icons/svg-icons.component';
 
 @Component({
     selector: 'app-footer',
     templateUrl: './footer.component.html',
     styleUrls: ['./footer.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    imports: [SvgIconsComponent]
 })
 export class FooterComponent {
-  SvgIcon = SvgIcon;
+  scrollToView = inject(ViewportScroller);
 
-  constructor(public scrollToView: ViewportScroller) { }
+  SvgIcon = SvgIcon;
 
   public scrollToElement(element: string) {
     this.scrollToView.scrollToAnchor(element);

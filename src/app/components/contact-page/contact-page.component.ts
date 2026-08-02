@@ -1,15 +1,14 @@
-import { Component, EventEmitter, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, output } from '@angular/core';
 import { gsap } from 'gsap';
+
 
 @Component({
     selector: 'app-contact-page',
     templateUrl: './contact-page.component.html',
-    styleUrls: ['./contact-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+    styleUrls: ['./contact-page.component.scss']
 })
 export class ContactPageComponent implements OnInit {
-  @Output('showContactForm') showContactForm = new EventEmitter<any>();
+  readonly showContactForm = output<void>();
 
   ngOnInit() {
     gsap.fromTo(

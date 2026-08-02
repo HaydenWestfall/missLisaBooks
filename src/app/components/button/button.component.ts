@@ -1,21 +1,18 @@
-import { Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
-    selector: 'app-button',
-    templateUrl: './button.component.html',
-    styleUrls: ['./button.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-button',
+  templateUrl: './button.component.html',
+  styleUrls: ['./button.component.scss'],
 })
 export class ButtonComponent {
+  readonly text = input<string>();
+  readonly backgroundColor = input<string>(undefined, { alias: 'btn-bg' });
+  readonly border = input<string>(undefined, { alias: 'btn-border' });
+  readonly color = input<string>(undefined, { alias: 'btn-color' });
+  readonly hoverBg = input<string>();
+  readonly hoverBorder = input<string>();
+  readonly hoverColor = input<string>();
 
-  @Input('text')text: string;
-  @Input('btn-bg')backgroundColor: string;
-  @Input('btn-border')border: string;
-  @Input('btn-color')color: string;
-  @Input('hoverBg')hoverBg: string;
-  @Input('hoverBorder')hoverBorder: string;
-  @Input('hoverColor')hoverColor: string;
-
-  @Output('buttonClicked')buttonClicked = new EventEmitter<any>();
+  readonly buttonClicked = output<void>();
 }

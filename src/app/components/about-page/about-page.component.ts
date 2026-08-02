@@ -1,22 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ViewportScroller } from '@angular/common';
 import { gsap } from 'gsap';
+import { injectMediaQuery } from '../../utility/media-query';
 
 @Component({
-    selector: 'app-about-page',
-    templateUrl: './about-page.component.html',
-    styleUrls: ['./about-page.component.scss'],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-about-page',
+  templateUrl: './about-page.component.html',
+  styleUrls: ['./about-page.component.scss'],
 })
 export class AboutPageComponent implements OnInit {
-  mediaQuery: any = window.matchMedia('(max-width: 768px)');
+  readonly scrollToView = inject(ViewportScroller);
 
-  constructor(public scrollToView: ViewportScroller) {
-    window.onresize = () => {
-      this.mediaQuery = window.matchMedia('(max-width: 768px)');
-    };
-  }
+  readonly isMobile = injectMediaQuery('(max-width: 768px)');
 
   ngOnInit() {
     gsap.fromTo(

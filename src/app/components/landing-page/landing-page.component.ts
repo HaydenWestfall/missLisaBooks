@@ -2,35 +2,33 @@ import { ViewportScroller } from '@angular/common';
 import {
   AfterViewInit,
   Component,
-  HostListener,
   OnDestroy,
   OnInit,
-  ViewChild,
-  ChangeDetectionStrategy
+  inject,
+  signal,
 } from '@angular/core';
-import { animatedBackground, fadeInOut, fadeInOutQuick } from '../../../animation';
-import { SvgIcon } from '../../utility/svg-icons/svg-icons.component';
 import { gsap } from 'gsap';
+import { ButtonComponent } from '../button/button.component';
+import { KidInfoComponent } from '../kid-info/kid-info.component';
 
 @Component({
-    selector: 'app-landing-page',
-    templateUrl: './landing-page.component.html',
-    styleUrls: ['./landing-page.component.scss'],
-    animations: [animatedBackground, fadeInOutQuick],
-    changeDetection: ChangeDetectionStrategy.Eager,
-    standalone: false
+  selector: 'app-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss'],
+  imports: [ButtonComponent, KidInfoComponent],
 })
 export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
-  SvgIcon = SvgIcon;
-  scrollPosition = 0;
-  scrollIncrement = 0;
-  characterIndex = 0;
-  showAction = false;
-  heroText: string =
+  private readonly scrollToView = inject(ViewportScroller);
+
+  readonly characterIndex = signal(0);
+  readonly showAction = signal(false);
+  readonly kidSelected = signal<any>(null);
+
+  readonly heroText =
     'Lets Be Irrationally Crazy About As Many Kids As We Possibly Can';
-  heroTextChunks: string[] = this.heroText.split(' ');
-  kidSelected = null;
-  kids: any[] = [
+  readonly heroTextChunks: string[] = this.heroText.split(' ');
+
+  readonly kids: any[] = [
     {
       id: 'kid1',
       name: 'Riglee "Riggs" Leighner',
@@ -65,29 +63,30 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
 
   currentIndex = 0;
   totalImages = 3; // Only count the original images (not the duplicate)
-  autoSlideInterval: any;
-  timeline: TimelineMax;
+  timeline?: gsap.core.Timeline;
 
-  animationFrameId: number | null = null;
-  animations: gsap.core.Tween[] = [];
   direction = -1;
-  slider = 0;
   xPos = 0;
 
-  @ViewChild('headerPlat') header: HTMLElement;
-
-  constructor(public scrollToView: ViewportScroller) {}
+  private animationFrameId: number | null = null;
+  private typewriterInterval: ReturnType<typeof setInterval> | null = null;
 
   ngOnInit(): void {
     this.setupTimeline();
   }
 
   ngOnDestroy() {
-    this.timeline.kill();
+    this.timeline?.kill();
+
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+    if (this.typewriterInterval !== null) {
+      clearInterval(this.typewriterInterval);
+    }
   }
 
   setupTimeline() {
-    console.log('settingpu');
     this.timeline = gsap.timeline({
       repeat: -1, // Infinite loop
     });
@@ -115,7 +114,6 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   openLearnMore(): void {
-    // this.kidSelected = this.kids[this.currentIndex % 3];
     const scrollPosition = gsap.getProperty('.images', 'x') as number;
     if (scrollPosition < 0 && scrollPosition >= -100) {
       this.currentIndex = 1;
@@ -124,13 +122,13 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
     } else {
       this.currentIndex = 0;
     }
-    this.kidSelected = this.kids[this.currentIndex];
-    this.timeline.pause();
+    this.kidSelected.set(this.kids[this.currentIndex]);
+    this.timeline?.pause();
   }
 
   closeLearnMore(): void {
-    this.kidSelected = null;
-    this.timeline.resume();
+    this.kidSelected.set(null);
+    this.timeline?.resume();
   }
 
   ngAfterViewInit() {
@@ -155,13 +153,13 @@ export class LandingPageComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   show(): void {
-    let animationInterval = setInterval(() => {
-      this.characterIndex++;
-      if (this.characterIndex === this.heroTextChunks.length) {
-        clearInterval(animationInterval);
-        animationInterval = null;
-        this.showAction = true;
-        return;
+    this.typewriterInterval = setInterval(() => {
+      this.characterIndex.update((index) => index + 1);
+
+      if (this.characterIndex() === this.heroTextChunks.length) {
+        clearInterval(this.typewriterInterval);
+        this.typewriterInterval = null;
+        this.showAction.set(true);
       }
     }, 40);
   }
