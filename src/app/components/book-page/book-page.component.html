@@ -1,7 +1,7 @@
 <div class="latest-release-page" id="Books">
   <div class="header-wrapper">
-    <h3 [style.color]="'#82a994'" class="sub-header">LATEST RELEASE</h3>
-    <div id="book-title" class="section-header">Hatching Snappers</div>
+    <p [style.color]="'#82a994'" class="sub-header">LATEST RELEASE</p>
+    <h2 id="book-title" class="section-header">Hatching Snappers</h2>
     <img
       id="award-image"
       [src]="'../assets/img/Award.webp'"
@@ -11,7 +11,11 @@
 
   <div class="latest-release-wrapper">
     <div class="book-image-wrapper">
-      <img class="book" [src]="'../assets/img/book_stack.webp'" />
+      <img
+        class="book"
+        [src]="'../assets/img/book_stack.webp'"
+        alt="Hatching Snappers book cover"
+      />
     </div>
     <div class="book-description">
       <span
@@ -33,13 +37,21 @@
   </div>
 
   <div class="other-books">
-    <h2>Others releases:</h2>
+    <h3>Others releases:</h3>
     <div class="latest-release-wrapper">
       <div class="book-image-wrapper small-image">
-        <img class="book" [src]="'../assets/img/Josie_and_toad.webp'" />
+        <img
+          class="book"
+          [src]="'../assets/img/Josie_and_toad.webp'"
+          alt="Josie and the Toad book cover"
+        />
       </div>
       <div class="book-description description-small">
-        <img src="../../../assets/img/josie_and_the_toad_text.webp" /><br />
+        <h4 class="sr-only">Josie and the Toad</h4>
+        <img
+          src="../../../assets/img/josie_and_the_toad_text.webp"
+          alt="Josie and the Toad"
+        /><br />
         <span
           >Dawson and his older sister, Maddie, live in the country, where they
           are surrounded by wildlife. Over the course of a summer, their mom

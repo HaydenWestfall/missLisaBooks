@@ -2,7 +2,11 @@
   <div class="quote-overlay" animate.enter="fade-in" animate.leave="fade-out">
     <div class="kid-image">
       <div class="kid-wrapper" [style.background-color]="kid.bg">
-        <img [style.object-position]="kid.imagePos" [src]="kid.image" />
+        <img
+          [style.object-position]="kid.imagePos"
+          [src]="kid.image"
+          [alt]="kid.name"
+        />
       </div>
       <div style="text-align: center">
         <span>Meet</span><br />

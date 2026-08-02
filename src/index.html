@@ -2,13 +2,167 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>MissLisaBooks</title>
+    <title>Miss Lisa Books | Children's Books by Lisa Hildebrand</title>
+    <meta
+      name="description"
+      content="Miss Lisa Books publishes heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad. Shop now on Amazon, Barnes & Noble, and Lucid Books."
+    />
+    <meta
+      name="keywords"
+      content="Miss Lisa Books, Lisa Hildebrand, children's books, Hatching Snappers, Josie and the Toad, kids books, picture books, struggling readers, special education books"
+    />
+    <meta name="author" content="Lisa Hildebrand" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#537864" />
+    <link rel="canonical" href="https://misslisabooks.com/" />
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="./assets/img/favicon.webp" />
+    <link rel="apple-touch-icon" href="./assets/img/favicon.webp" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Miss Lisa Books" />
+    <meta
+      property="og:title"
+      content="Miss Lisa Books | Children's Books by Lisa Hildebrand"
+    />
+    <meta
+      property="og:description"
+      content="Heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad."
+    />
+    <meta property="og:url" content="https://misslisabooks.com/" />
+    <meta
+      property="og:image"
+      content="https://misslisabooks.com/assets/img/book_stack.webp"
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Miss Lisa Books | Children's Books by Lisa Hildebrand"
+    />
+    <meta
+      name="twitter:description"
+      content="Heartwarming, true-story-inspired children's books by author Lisa Hildebrand, including Hatching Snappers and Josie and the Toad."
+    />
+    <meta
+      name="twitter:image"
+      content="https://misslisabooks.com/assets/img/book_stack.webp"
+    />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Miss Lisa Books",
+        "url": "https://misslisabooks.com/",
+        "description": "Miss Lisa Books publishes heartwarming, true-story-inspired children's books by author Lisa Hildebrand.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miss Lisa Books LLC",
+          "url": "https://misslisabooks.com/",
+          "logo": "https://misslisabooks.com/assets/img/logo-mlb.webp",
+          "sameAs": ["https://www.instagram.com/misslisabooks/"]
+        }
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Lisa Hildebrand",
+        "url": "https://misslisabooks.com/#About",
+        "image": "https://misslisabooks.com/assets/img/lisa.webp",
+        "jobTitle": "Author",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Miss Lisa Books LLC"
+        },
+        "description": "Lisa Hildebrand is the author of Miss Lisa Books, writing children's books inspired by true stories, including Hatching Snappers and Josie and the Toad."
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Hatching Snappers",
+        "url": "https://misslisabooks.com/#Books",
+        "image": "https://misslisabooks.com/assets/img/book_stack.webp",
+        "author": {
+          "@type": "Person",
+          "name": "Lisa Hildebrand"
+        },
+        "illustrator": {
+          "@type": "Person",
+          "name": "Parker Buhrman"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miss Lisa Books LLC"
+        },
+        "description": "Based on a true story, follow Madison's adventure saving snapping turtle eggs from local wildlife in this heartwarming tale of determination and nature.",
+        "genre": "Children's Fiction",
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://tinyurl.com/454z84ty",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.barnesandnoble.com/w/hatching-snappers-lisa-hildebrand/1146124224?ean=9781632967145",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "url": "https://lucidbooks.com/books/hatching-snappers/",
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Josie and the Toad",
+        "url": "https://misslisabooks.com/#Books",
+        "image": "https://misslisabooks.com/assets/img/Josie_and_toad.webp",
+        "author": {
+          "@type": "Person",
+          "name": "Lisa Hildebrand"
+        },
+        "illustrator": {
+          "@type": "Person",
+          "name": "Parker Buhrman"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Miss Lisa Books LLC"
+        },
+        "description": "Dawson and his older sister Maddie live in the country, where an enormous toad keeps mysteriously appearing in their home in the middle of the night.",
+        "genre": "Children's Fiction"
+      }
+    </script>
+
     <script src="https://smtpjs.com/v3/smtp.js"></script>
   </head>
   <body>
-    <app-root id="root"></app-root>
+    <app-root id="root">
+      <noscript>
+        <h1>Miss Lisa Books</h1>
+        <p>
+          Miss Lisa Books publishes heartwarming, true-story-inspired
+          children's books by author Lisa Hildebrand, including Hatching
+          Snappers and Josie and the Toad. Please enable JavaScript to view
+          this site.
+        </p>
+      </noscript>
+    </app-root>
   </body>
 </html>

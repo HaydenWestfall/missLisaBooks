@@ -1,12 +1,12 @@
 <div class="platform-page" id="Platform">
   <div class="header-wrapper">
-    <h3 class="sub-header">OUR PLATFORM</h3>
-    <div id="platform-title" class="section-header">Believe in Children</div>
+    <p class="sub-header">OUR PLATFORM</p>
+    <h2 id="platform-title" class="section-header">Believe in Children</h2>
   </div>
   <div class="platform-cards">
     @for (card of cards; track card) {
       <div class="platform-card">
-        <img [src]="card.image" alt="child-learning" />
+        <img [src]="card.image" [alt]="card.alt" />
         <div>{{ card.description }}</div>
       </div>
     }

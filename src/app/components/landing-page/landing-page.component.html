@@ -1,10 +1,10 @@
 <div class="landing-page" #landing id="test">
   <div class="hero">
-    <div id="hero-text">
+    <h1 id="hero-text">
       @for (letter of heroTextChunks; track $index; let i = $index) {
         <span [class.fade]="i < characterIndex()">{{ letter }} </span>
       }
-    </div>
+    </h1>
     <div class="button-wrapper">
       @if (showAction()) {
         <app-button
@@ -57,7 +57,8 @@
       />
       <img
         id="riggs-repeat"
-        alt="Riggs repeat"
+        alt=""
+        aria-hidden="true"
         src="../../../assets/img/riggs.webp"
       />
     </div>
