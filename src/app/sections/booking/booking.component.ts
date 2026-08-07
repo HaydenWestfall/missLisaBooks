@@ -1,12 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import {
   FormBuilder,
   ReactiveFormsModule,
   Validators,
   type AbstractControl,
 } from '@angular/forms';
+import { firstValueFrom } from 'rxjs';
 import { IconComponent } from '../../ui/icon.component';
 import { CONTACT, EVENT_TYPES } from '../../core/site-content';
+
+/** Cloudflare Worker that relays this form to SMTP2Go. */
+const BOOKING_ENDPOINT = 'https://booking.misslisabooks.com';
 
 @Component({
   selector: 'app-booking',
@@ -16,12 +21,15 @@ import { CONTACT, EVENT_TYPES } from '../../core/site-content';
 })
 export class BookingComponent {
   private readonly fb = inject(FormBuilder);
+  private readonly http = inject(HttpClient);
 
   readonly contact = CONTACT;
   readonly eventTypes = EVENT_TYPES;
 
-  /** Set once the request has been handed off to the visitor's mail client. */
+  /** Set once the request has been sent (or handed off as a fallback). */
   readonly submitted = signal(false);
+  readonly sending = signal(false);
+  readonly sendFailed = signal(false);
   readonly copied = signal(false);
   readonly showValidation = signal(false);
 
@@ -35,6 +43,8 @@ export class BookingComponent {
     timeframe: [''],
     groupSize: [''],
     message: [''],
+    // Honeypot — left blank by real visitors, hidden from sighted/screen-reader users.
+    company: [''],
   });
 
   /** True once a field should start showing its error state. */
@@ -44,21 +54,36 @@ export class BookingComponent {
     return control.invalid && (control.touched || this.showValidation());
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
     if (this.form.invalid) {
       this.showValidation.set(true);
       this.form.markAllAsTouched();
       // Move focus to the first problem so keyboard and screen reader users
       // are not left guessing why nothing happened.
-      const firstInvalid = Object.keys(this.form.controls).find((key) =>
-        this.form.get(key)?.invalid
+      const firstInvalid = Object.keys(this.form.controls).find(
+        (key) => this.form.get(key)?.invalid,
       );
       document.getElementById(`field-${firstInvalid}`)?.focus();
       return;
     }
 
-    window.location.href = this.mailtoHref();
-    this.submitted.set(true);
+    this.sending.set(true);
+    this.sendFailed.set(false);
+
+    try {
+      await firstValueFrom(
+        this.http.post(BOOKING_ENDPOINT, this.form.getRawValue()),
+      );
+      this.submitted.set(true);
+    } catch {
+      // The worker/API is unreachable — fall back to the visitor's own mail
+      // client so the request still gets to Lisa.
+      this.sendFailed.set(true);
+      window.location.href = this.mailtoHref();
+      this.submitted.set(true);
+    } finally {
+      this.sending.set(false);
+    }
   }
 
   /** The plain-text version, shown as a fallback if the mail client no-shows. */

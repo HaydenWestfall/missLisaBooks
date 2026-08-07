@@ -43,37 +43,67 @@
         @if (submitted()) {
           <div class="done">
             <span class="done__mark"><app-icon name="check" /></span>
-            <h3 class="done__title">Your email is ready to send</h3>
-            <p class="done__text">
-              Your mail app should have opened with the details filled in — just
-              press send. If nothing opened, copy the message below and email it
-              to <strong>{{ contact.email }}</strong>.
-            </p>
+            @if (sendFailed()) {
+              <h3 class="done__title">Your email is ready to send</h3>
+              <p class="done__text">
+                We couldn't reach the booking service, so your mail app should
+                have opened with the details filled in instead — just press
+                send. If nothing opened, copy the message below and email it
+                to <strong>{{ contact.email }}</strong>.
+              </p>
 
-            <pre class="done__preview">{{ messageBody() }}</pre>
+              <pre class="done__preview">{{ messageBody() }}</pre>
 
-            <div class="done__actions">
-              <button
-                class="btn btn--primary btn--sm"
-                type="button"
-                (click)="copyMessage()"
-              >
-                {{ copied() ? 'Copied!' : 'Copy message' }}
-              </button>
-              <a class="btn btn--secondary btn--sm" [href]="mailtoHref()">
-                Open email again
-              </a>
-              <button
-                class="btn btn--secondary btn--sm"
-                type="button"
-                (click)="reset()"
-              >
-                Start over
-              </button>
-            </div>
+              <div class="done__actions">
+                <button
+                  class="btn btn--primary btn--sm"
+                  type="button"
+                  (click)="copyMessage()"
+                >
+                  {{ copied() ? 'Copied!' : 'Copy message' }}
+                </button>
+                <a class="btn btn--secondary btn--sm" [href]="mailtoHref()">
+                  Open email again
+                </a>
+                <button
+                  class="btn btn--secondary btn--sm"
+                  type="button"
+                  (click)="reset()"
+                >
+                  Start over
+                </button>
+              </div>
+            } @else {
+              <h3 class="done__title">Your visit request is on its way</h3>
+              <p class="done__text">
+                Thanks! Miss Lisa will reply to <strong>{{ form.getRawValue().email }}</strong>
+                as soon as she can.
+              </p>
+
+              <div class="done__actions">
+                <button
+                  class="btn btn--secondary btn--sm"
+                  type="button"
+                  (click)="reset()"
+                >
+                  Send another request
+                </button>
+              </div>
+            }
           </div>
         } @else {
           <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+            <div class="field sr-only" aria-hidden="true">
+              <label for="field-company">Company</label>
+              <input
+                id="field-company"
+                type="text"
+                formControlName="company"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </div>
+
             <div class="field">
               <label for="field-name">Your name <span aria-hidden="true">*</span></label>
               <input
@@ -182,13 +212,17 @@
             </div>
 
             <div class="form__submit">
-              <button class="btn btn--primary btn--block" type="submit">
-                Send my visit request
+              <button
+                class="btn btn--primary btn--block"
+                type="submit"
+                [disabled]="sending()"
+              >
+                {{ sending() ? 'Sending…' : 'Send my visit request' }}
                 <app-icon name="arrow-right" />
               </button>
               <p class="form__note">
-                This opens your email app with everything filled in, so nothing
-                gets sent until you press send.
+                Sends straight to Miss Lisa — she'll reply directly to the
+                email address you enter above.
               </p>
             </div>
           </form>

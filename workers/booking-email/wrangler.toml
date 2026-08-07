@@ -1,0 +1,19 @@
+name = "misslisabooks-booking-email"
+main = "src/index.ts"
+compatibility_date = "2026-08-01"
+
+# Requires booking.misslisabooks.com to exist as its own zone in this
+# Cloudflare account (see delegation steps in project notes) before deploying.
+routes = [
+  { pattern = "booking.misslisabooks.com", custom_domain = true }
+]
+
+# Origins allowed to call this worker from the browser. Add the production
+# domain(s) here; keep the local dev port for testing with `ng serve`.
+[vars]
+ALLOWED_ORIGINS = "https://misslisabooks.com,https://www.misslisabooks.com,http://localhost:4200"
+TO_EMAIL = "lisahildebrand@misslisabooks.com"
+FROM_EMAIL = "lisahildebrand@misslisabooks.com"
+
+# Set the real secret with:
+#   wrangler secret put SMTP2GO_API_KEY

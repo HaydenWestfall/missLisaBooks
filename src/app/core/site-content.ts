@@ -8,7 +8,7 @@
  */
 
 export const CONTACT = {
-  email: 'misslisabooks@gmail.com',
+  email: 'lisahildebrand@misslisabooks.com',
   instagram: 'https://www.instagram.com/misslisabooks/',
   instagramHandle: '@misslisabooks',
   // CONFIRM: shown so schools know roughly how far Lisa travels.
