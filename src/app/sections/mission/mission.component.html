@@ -8,7 +8,7 @@
 
     <ul class="kids">
       @for (kid of kids; track kid.id; let i = $index) {
-        <li class="kid" appReveal [revealDelay]="i * 110">
+        <li class="kid" [id]="'kid-' + kid.id" appReveal [revealDelay]="i * 110">
           <figure class="kid__figure">
             <div class="kid__frame" [style.background]="kid.accent">
               <img
@@ -41,6 +41,7 @@
             class="belief__image"
             [src]="belief.image"
             [alt]="belief.alt"
+            [style.object-position]="belief.imagePosition"
             width="420"
             height="300"
             loading="lazy"

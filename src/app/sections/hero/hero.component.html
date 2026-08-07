@@ -32,16 +32,18 @@
       <ul class="collage">
         @for (kid of kids; track kid.id; let i = $index) {
           <li class="collage__card" [style.--i]="i">
-            <img
-              [src]="kid.image"
-              [alt]="kid.alt"
-              [style.object-position]="kid.imagePosition"
-              width="300"
-              height="400"
-              [attr.loading]="i === 0 ? null : 'lazy'"
-              [attr.fetchpriority]="i === 0 ? 'high' : null"
-              decoding="async"
-            />
+            <a class="collage__link" [href]="'#kid-' + kid.id" [attr.aria-label]="'Read ' + kid.name + '’s story'">
+              <img
+                [src]="kid.image"
+                [alt]="kid.alt"
+                [style.object-position]="kid.imagePosition"
+                width="300"
+                height="400"
+                [attr.loading]="i === 0 ? null : 'lazy'"
+                [attr.fetchpriority]="i === 0 ? 'high' : null"
+                decoding="async"
+              />
+            </a>
           </li>
         }
       </ul>
