@@ -279,7 +279,7 @@ export const PEOPLE: readonly Person[] = [
     id: 'lisa',
     name: 'Lisa Hildebrand',
     role: 'Author & creator',
-    photo: 'assets/img/lisa_headshot.png',
+    photo: 'assets/img/lisa_headshot.webp',
     photoAlt: 'Lisa Hildebrand, author of Miss Lisa Books',
     bio: [
       'Lisa is a wife and mother of two who lives in Ludlow Falls, Ohio. She graduated from Slippery Rock University with a BA in both Special Education and Elementary Education, and has spent the last 26 years working in special education.',
@@ -290,7 +290,7 @@ export const PEOPLE: readonly Person[] = [
     id: 'parker',
     name: 'Parker Buhrman',
     role: 'Illustrator',
-    photo: 'assets/img/parker_headshot.png',
+    photo: 'assets/img/parker_headshot.webp',
     photoAlt: 'Parker Buhrman, illustrator for Miss Lisa Books',
     bio: [
       'Parker and his high school sweetheart, Olivia, were born, raised, and still live in Arcanum, Ohio. He has always had a love for the arts and a creative mind that never seems to shut off new ideas.',
@@ -308,21 +308,21 @@ export const MISSION = {
     'hear that out loud.',
   beliefs: [
     {
-      image: 'assets/img/web_1.jpeg',
+      image: 'assets/img/web_1.webp',
       imagePosition: 'center',
       alt: 'Miss Lisa reading to a classroom of students seated on the floor',
       title: 'Nothing is off the table',
       body: 'Miss Lisa is inspired by anyone with a disability who refuses to let it interfere with getting on in life. Her illustrator is a perfect example.',
     },
     {
-      image: 'assets/img/web_2.jpeg',
+      image: 'assets/img/web_2.webp',
       imagePosition: 'center',
       alt: 'A group of students holding tote bags after a school visit',
       title: 'Written for struggling readers',
       body: 'The series is written for readers who benefit from repetition of text, wrapped around the simple enjoyment of a true childhood story.',
     },
     {
-      image: 'assets/img/web_3.jpeg',
+      image: 'assets/img/web_3.webp',
       imagePosition: 'center top',
       alt: 'Miss Lisa with a young boy holding stuffed animals and a copy of Josie and the Toad',
       title: 'Every child can learn to read',

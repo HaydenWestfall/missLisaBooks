@@ -39,6 +39,16 @@
       crossorigin
     />
 
+    <!-- Preload the first hero collage photo — it's the largest above-the-fold image and would
+         otherwise only start downloading after Angular bootstraps and renders the DOM. -->
+    <link
+      rel="preload"
+      href="./assets/img/riggs.webp"
+      as="image"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Miss Lisa Books" />
